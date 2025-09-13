@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import  DirectoryProvider from './context/DirectoryProvider.jsx';
+
+// Pages
+import Home from './components/Pages/Home.jsx';
+import Configuration from './components/Pages/Configuration.jsx';
+import InGame from './components/Pages/InGame.jsx';
+import LevelOverlay from './components/Pages/LevelOverlay.jsx';
+import LevelSelector from './components/Pages/LevelSelector.jsx';
+import PlayerSelector from './components/Pages/PlayerSelector.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DirectoryProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/configuration" element={<Configuration />} />
+          <Route path="/ingame" element={<InGame />} />
+          <Route path="/leveloverlay" element={<LevelOverlay />} />
+          <Route path="/levelselector" element={<LevelSelector />} />
+          <Route path="/playerselector" element={<PlayerSelector />} />
+        </Routes>
+      </Router>
+    </DirectoryProvider>
   );
 }
 

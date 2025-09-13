@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import DirectoryReducer from './DirectoryReducer';
 import { exampleAction } from './actions';
-import api from '../../api/api';
+import api from '../api/api';
 
 const DirectoryContext = createContext();
 
@@ -24,8 +24,9 @@ function DirectoryProvider({ children }) {
 }
 
 async function exampleFunction(dispatch) {
+    /*
     try {
-        const res = await api.post('/example', { username, password });
+        const res = await api.post('/example', { exampleValue });
         if (res.data.success) {
             dispatch({ type: exampleAction, payload: res.data.exampleValue });
         }
@@ -34,6 +35,7 @@ async function exampleFunction(dispatch) {
     } catch (error) {
         console.error("Error logging in:", error);
     }
+        */
 }
 
 export default DirectoryProvider;
