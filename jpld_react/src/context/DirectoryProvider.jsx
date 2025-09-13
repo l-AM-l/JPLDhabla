@@ -38,5 +38,13 @@ async function exampleFunction(dispatch) {
         */
 }
 
+async function logIn(){
+    try{
+        await api.post('/logIn');
+
+    }catch(error){
+        console.error("Error Login In" , error );
+    }
+}
 export default DirectoryProvider;
-export { exampleFunction };
+export { logIn };
