@@ -12,12 +12,6 @@ import {
 
 function DirectoryReducer(state, action) {
   switch(action.type) {
-
-    case exampleAction:
-      return {
-        ...state,
-      };
-
     case LOGIN:
       return {
         ...state,
@@ -25,31 +19,31 @@ function DirectoryReducer(state, action) {
       };
 
     case SET_VOLUME:
-      return {
-        ...state,
-        settings: {
-          ...state.settings,
-          volume: action.payload
-        }
-      };
+        return {
+            ...state,
+            settings: {
+            ...state.settings,
+            volume: Number(action.payload.toFixed(3))
+            }
+        };
 
     case SET_BRIGHTNESS:
-      return {
-        ...state,
-        settings: {
-          ...state.settings,
-          brightness: action.payload
-        }
-      };
+        return {
+            ...state,
+            settings: {
+            ...state.settings,
+            brightness: Number(action.payload.toFixed(3))
+            }
+        };
 
     case SET_LETTER_SIZE:
-      return {
-        ...state,
-        settings: {
-          ...state.settings,
-          letterSize: action.payload
-        }
-      };
+        return {
+            ...state,
+            settings: {
+            ...state.settings,
+            letterSize: Number(action.payload.toFixed(3))
+            }
+        };
 
     case SET_LEVEL:
       return {

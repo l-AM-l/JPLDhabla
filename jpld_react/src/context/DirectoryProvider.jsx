@@ -34,11 +34,11 @@ function DirectoryProvider({ children }) {
     );
 }
 
-function appContext(){
+export function useAppContext(){
     return useContext(DirectoryContext);
 }
 
-async function logIn(){
+export async function logIn(){
     try{
         await api.post('/logIn');
 
@@ -107,14 +107,3 @@ export async function setPlayers(dispatch, players) {
 
 
 export default DirectoryProvider;
-
-export {
-  setVolume,
-  setBrightness,
-  setLetterSize,
-  setLevel,
-  setDifficulty,
-  setScene,
-  setPlayers,
-  logIn
-};
