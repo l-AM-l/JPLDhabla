@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import vector from "./vector.svg";
+import vector from "../../../assets/gear.png";
 
 export const Gear = () => {
   return (

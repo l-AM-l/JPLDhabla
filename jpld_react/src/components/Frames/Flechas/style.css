@@ -1,0 +1,201 @@
+.flechas .group {
+  height: 120px;
+  position: relative;
+}
+
+.flechas .vector {
+  height: 113px;
+  left: 5px;
+  position: absolute;
+  top: 4px;
+  width: 71px;
+}
+
+.flechas .text-wrapper {
+  font-family: var(--h3-font-family);
+  font-size: var(--h3-font-size);
+  font-style: var(--h3-font-style);
+  font-weight: var(--h3-font-weight);
+  height: 75px;
+  letter-spacing: var(--h3-letter-spacing);
+  line-height: var(--h3-line-height);
+  position: relative;
+  text-align: center;
+  width: 281px;
+}
+
+.flechas .img {
+  height: 112.74px;
+  margin-left: -14px;
+  position: relative;
+  width: 70.58px;
+}
+
+.flechas .vector-2 {
+  height: 112.74px;
+  position: relative;
+  width: 70.58px;
+}
+
+.flechas .div {
+  font-family: var(--h3-font-family);
+  font-size: var(--h3-font-size);
+  font-style: var(--h3-font-style);
+  font-weight: var(--h3-font-weight);
+  height: 75px;
+  letter-spacing: var(--h3-letter-spacing);
+  line-height: var(--h3-line-height);
+  margin-left: -14px;
+  position: relative;
+  text-align: center;
+  width: 281px;
+}
+
+.flechas.siguiente {
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+}
+
+.flechas.atras-color {
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+}
+
+.flechas.next {
+  height: 120px;
+  width: 100px;
+}
+
+.flechas.back {
+  border-radius: 10px;
+  height: 120px;
+  overflow: hidden;
+  width: 80px;
+}
+
+.flechas.atras {
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+}
+
+.flechas.siguiente-color {
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+}
+
+.flechas.next .group {
+  width: 80px;
+}
+
+.flechas.back .group {
+  aspect-ratio: 0.67;
+}
+
+.flechas.siguiente .text-wrapper {
+  color: #03045e;
+}
+
+.flechas.atras-color .text-wrapper {
+  color: #03045e;
+}
+
+.flechas.next .text-wrapper {
+  color: #03045e;
+}
+
+.flechas.back .text-wrapper {
+  color: #03045e;
+}
+
+.flechas.atras .text-wrapper {
+  color: #03045e;
+}
+
+.flechas.siguiente-color .text-wrapper {
+  color: #e1567b;
+}
+
+.flechas.siguiente .div {
+  color: #03045e;
+}
+
+.flechas.atras-color .div {
+  color: #e1567b;
+}
+
+.flechas.next .div {
+  color: #03045e;
+}
+
+.flechas.back .div {
+  color: #03045e;
+}
+
+.flechas.atras .div {
+  color: #03045e;
+}
+
+.flechas.siguiente-color .div {
+  color: #03045e;
+}
+
+:root {
+  --h1-font-family: "Quicksand", Helvetica;
+  --h1-font-size: 96px;
+  --h1-font-style: normal;
+  --h1-font-weight: 500;
+  --h1-letter-spacing: 0px;
+  --h1-line-height: normal;
+  --h2-font-family: "Quicksand", Helvetica;
+  --h2-font-size: 64px;
+  --h2-font-style: normal;
+  --h2-font-weight: 500;
+  --h2-letter-spacing: 0px;
+  --h2-line-height: normal;
+  --h3-font-family: "Quicksand", Helvetica;
+  --h3-font-size: 48px;
+  --h3-font-style: normal;
+  --h3-font-weight: 500;
+  --h3-letter-spacing: 0px;
+  --h3-line-height: normal;
+  --text-1-font-family: "Quicksand", Helvetica;
+  --text-1-font-size: 32px;
+  --text-1-font-style: normal;
+  --text-1-font-weight: 500;
+  --text-1-letter-spacing: 0px;
+  --text-1-line-height: normal;
+  --texto-2-font-family: "Quicksand", Helvetica;
+  --texto-2-font-size: 24px;
+  --texto-2-font-style: normal;
+  --texto-2-font-weight: 500;
+  --texto-2-letter-spacing: 0px;
+  --texto-2-line-height: normal;
+  --texto-3-font-family: "Quicksand", Helvetica;
+  --texto-3-font-size: 16px;
+  --texto-3-font-style: normal;
+  --texto-3-font-weight: 500;
+  --texto-3-letter-spacing: 0px;
+  --texto-3-line-height: normal;
+  --variable-collection-answer: initial;
+  --variable-collection-color: rgba(3, 4, 94, 1);
+  --variable-collection-color-2: rgba(0, 119, 182, 1);
+  --variable-collection-color-3: rgba(0, 180, 216, 1);
+  --variable-collection-color-4: rgba(225, 86, 123, 1);
+  --variable-collection-color-5: rgba(255, 191, 0, 1);
+  --variable-collection-color-6: rgba(223, 248, 253, 1);
+  --variable-collection-enviorment: 0px;
+  --variable-collection-flecha-2: rgba(255, 255, 255, 0.85);
+  --variable-collection-flecha-3: rgba(255, 255, 255, 0.85);
+  --variable-collection-flecha-4: rgba(255, 255, 255, 0.85);
+  --variable-collection-flecha-5: rgba(255, 255, 255, 0.85);
+  --variable-collection-flecha-6: rgba(255, 255, 255, 0.85);
+  --variable-collection-flechas: rgba(255, 255, 255, 0.85);
+  --variable-collection-level: 1px;
+  --variable-collection-levele: 1px;
+  --variable-collection-micvisible: initial;
+  --variable-collection-singleplayer: initial;
+}
