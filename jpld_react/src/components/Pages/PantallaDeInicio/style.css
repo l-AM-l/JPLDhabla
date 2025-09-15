@@ -1,0 +1,144 @@
+.pantalla-de-inicio {
+  background-color: #dff8fd;
+  height: 1024px;
+  position: relative;
+  width: 1440px;
+}
+
+.pantalla-de-inicio .overlap-group {
+  height: 869px;
+  left: 0;
+  position: absolute;
+  top: 155px;
+  width: 969px;
+}
+
+.pantalla-de-inicio .IMG {
+  aspect-ratio: 1.43;
+  height: 672px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 197px;
+  width: 969px;
+}
+
+.pantalla-de-inicio .img {
+  aspect-ratio: 1.43;
+  height: 476px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 393px;
+  width: 605px;
+}
+
+.pantalla-de-inicio .salir-instance {
+  left: 480px !important;
+  position: absolute !important;
+  top: 543px !important;
+}
+
+.pantalla-de-inicio .iniciar-instance {
+  left: 480px !important;
+  position: absolute !important;
+  top: 295px !important;
+}
+
+.pantalla-de-inicio .IMG-2 {
+  aspect-ratio: 1;
+  height: 408px;
+  left: 279px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 402px;
+}
+
+.pantalla-de-inicio .gear {
+  height: 133px;
+  left: 1267px;
+  position: absolute;
+  top: 22px;
+  width: 133px;
+}
+
+.pantalla-de-inicio .vector {
+  height: 110px;
+  left: 13px;
+  position: absolute;
+  top: 12px;
+  width: 107px;
+}
+.pantalla-de-inicio {
+  background-color: #dff8fd;
+  height: 1024px;
+  position: relative;
+  width: 1440px;
+}
+
+.pantalla-de-inicio .overlap-group {
+  height: 869px;
+  left: 0;
+  position: absolute;
+  top: 155px;
+  width: 969px;
+}
+
+.pantalla-de-inicio .IMG {
+  aspect-ratio: 1.43;
+  height: 672px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 197px;
+  width: 969px;
+}
+
+.pantalla-de-inicio .img {
+  aspect-ratio: 1.43;
+  height: 476px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 393px;
+  width: 605px;
+}
+
+.pantalla-de-inicio .salir-instance {
+  left: 480px !important;
+  position: absolute !important;
+  top: 543px !important;
+}
+
+.pantalla-de-inicio .iniciar-instance {
+  left: 480px !important;
+  position: absolute !important;
+  top: 295px !important;
+}
+
+.pantalla-de-inicio .IMG-2 {
+  aspect-ratio: 1;
+  height: 408px;
+  left: 279px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 402px;
+}
+
+.pantalla-de-inicio .gear {
+  height: 133px;
+  left: 1267px;
+  position: absolute;
+  top: 22px;
+  width: 133px;
+}
+
+.pantalla-de-inicio .vector {
+  height: 110px;
+  left: 13px;
+  position: absolute;
+  top: 12px;
+  width: 107px;
+}

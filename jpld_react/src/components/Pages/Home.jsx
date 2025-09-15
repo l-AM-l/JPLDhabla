@@ -12,6 +12,7 @@ function Home(){
                 <Link to="/PlayerSelector">PlayerSelector</Link> |{" "}
                 <Link to="/">Home</Link>
             </nav>
+           
             <button onClick={logIn}>LogIn</button>
         </div>
     );

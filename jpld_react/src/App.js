@@ -4,6 +4,7 @@ import  DirectoryProvider from './context/DirectoryProvider.jsx';
 
 // Pages
 import Home from './components/Pages/Home.jsx';
+import {PantallaDeInicio} from './components/Pages/PantallaDeInicio/PantallaDeInicio.jsx';
 import Configuration from './components/Pages/Configuration.jsx';
 import InGame from './components/Pages/InGame.jsx';
 import LevelOverlay from './components/Pages/LevelOverlay.jsx';
@@ -15,7 +16,7 @@ function App() {
     <DirectoryProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<PantallaDeInicio />} />
           <Route path="/configuration" element={<Configuration />} />
           <Route path="/ingame" element={<InGame />} />
           <Route path="/leveloverlay" element={<LevelOverlay />} />
