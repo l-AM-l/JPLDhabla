@@ -6,6 +6,7 @@ import  DirectoryProvider from './context/DirectoryProvider.jsx';
 import Home from './components/Pages/Home.jsx';
 import {PantallaDeInicio} from './components/Pages/PantallaDeInicio/PantallaDeInicio.jsx';
 import {SelectorJugadores} from './components/Pages/Selector_Jugadores/Selector_Jugadores.jsx';
+import {LevelSelector} from './components/Pages/LevelSelector/LevelSelector.jsx';
 
 /*
 import Configuration from './components/Pages/Configuration.jsx';
@@ -20,8 +21,9 @@ function App() {
     <DirectoryProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<PantallaDeInicio />} />
+          <Route path="/b" element={<PantallaDeInicio />} />
           <Route path="/a" element={<SelectorJugadores />} />
+          <Route path="/" element={<LevelSelector />} />
         </Routes>
       </Router>
     </DirectoryProvider>

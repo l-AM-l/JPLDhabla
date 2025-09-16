@@ -1,0 +1,47 @@
+.level-selector {
+  background-color: var(--light-color);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* vertical stacking */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  gap: 2rem; /* even spacing between sections */
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center; /* title centered */
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.title {
+  font-family: var(--h1-font-family);
+  font-size: var(--h1-font-size);
+  font-weight: var(--h1-font-weight);
+  line-height: var(--h1-line-height);
+  margin: 0;
+}
+
+/* Gear fixed in top-right, like other screens */
+.gear-instance {
+  position: fixed;
+  top: 40px;
+  right: 10px;
+  width: 133px;
+  height: 133px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.back-button {
+  margin-top: auto; /* pushes it towards bottom */
+  cursor: pointer;
+}

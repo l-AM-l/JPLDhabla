@@ -1,0 +1,38 @@
+.carrusel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-frame {
+  background: var(--light-color, #dff8fd);
+  border: 3px solid var(--accent-color, #DA0463);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 320px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* arrows */
+.carousel-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+}
