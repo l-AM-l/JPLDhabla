@@ -6,26 +6,54 @@ import { PlusMinus } from "../../Buttons/PlusMinus/PlusMinus.jsx";
 import { Gear } from "../../Buttons/Gear/Gear.jsx";
 import "./style.css";
 
+import {
+  useAppContext,
+  setPlayers
+} from "../../../context/DirectoryProvider.jsx";
+
 // Import assets as React components or images
 import IMG from "../../../assets/IMG_0850_1.png";
 import img from "../../../assets/IMG_0849_1.png";
 
 export const SelectorJugadores = () => {
+  const { state, dispatch } = useAppContext();
+  const playerCount = state.players;
+
+  const handleIncrease = () => {
+    setPlayers(dispatch, playerCount + 1);
+  };
+
+  const handleDecrease = () => {
+    if (playerCount > 1) {
+      setPlayers(dispatch, playerCount - 1);
+    }
+  };
+
   return (
     <div className="selector-jugadores">
       <div className="overlap-group">
         <img className="background-img left" alt="Background left" src={IMG} />
         <img className="background-img right" alt="Background right" src={img} />
-        
+
         <div className="controls-wrapper vertical">
           <div>
             <Gear className="gear-instance" />
           </div>
-          
+
           <div className="controls-wrapper horizontal">
-            <PlusMinus type="minus" size="normal" className="minus-btn" />
-            <Person count={1} className="person-instance" />
-            <PlusMinus type="plus" size="normal" className="plus-btn" />
+            <PlusMinus
+              type="minus"
+              size="normal"
+              className="minus-btn"
+              onClick={handleDecrease}
+            />
+            <Person count={playerCount} className="person-instance" />
+            <PlusMinus
+              type="plus"
+              size="normal"
+              className="plus-btn"
+              onClick={handleIncrease}
+            />
           </div>
 
           <div className="header">
@@ -38,8 +66,6 @@ export const SelectorJugadores = () => {
           </div>
         </div>
       </div>
-
-     
     </div>
   );
 };

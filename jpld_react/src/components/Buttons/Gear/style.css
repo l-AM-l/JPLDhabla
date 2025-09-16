@@ -2,12 +2,20 @@
   height: 133px;
   width: 133px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .gear .vector {
   height: 110px;
   width: 107px;
-  position: absolute;
-  top: 12px;
-  left: 13px;
+  color: #03045e; /* default color */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.gear:hover .vector {
+  color: #e1567b; /* hover color */
+  transform: rotate(30deg); /* optional, adds gear rotation effect */
 }
