@@ -1,112 +1,37 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import React from "react";
-import { useReducer } from "react";
-import image from "./image.svg";
-import "./style.css";
-import vector2 from "./vector-2.svg";
-import vector4 from "./vector-4.svg";
-import vector5 from "./vector-5.svg";
 
-export const Flechas = ({ size, className, vector = "vector-3.svg" }) => {
-  const [state, dispatch] = useReducer(reducer, {
-    size: size || "next",
-  });
+// Import arrow SVGs as React components
+import { ReactComponent as LeftArrow } from "../../../assets/left_arrow.svg";
+import { ReactComponent as RightArrow } from "../../../assets/right_arrow.svg";
+import "./style.css";
+
+export const Flechas = ({ direction = "right", size = "normal", className = "" }) => {
+  const [hover, setHover] = useState(false);
 
   return (
     <div
-      className={`flechas ${state.size} ${className}`}
-      onMouseLeave={() => {
-        dispatch("mouse_leave");
-      }}
-      onMouseEnter={() => {
-        dispatch("mouse_enter");
-      }}
+      className={`flechas ${size} ${className}`}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
-      {["back", "next"].includes(state.size) && (
-        <div className="group">
-          <img
-            className="vector"
-            alt="Vector"
-            src={state.size === "back" ? image : vector}
-          />
-        </div>
-      )}
-
-      {["siguiente-color", "siguiente"].includes(state.size) && (
-        <>
-          <div className="text-wrapper">Siguiente</div>
-
-          <img
-            className="img"
-            alt="Vector"
-            src={state.size === "siguiente-color" ? vector4 : vector2}
-          />
-        </>
-      )}
-
-      {["atras-color", "atras"].includes(state.size) && (
-        <>
-          <img
-            className="vector-2"
-            alt="Vector"
-            src={state.size === "atras-color" ? vector5 : vector}
-          />
-
-          <div className="div">Atrás</div>
-        </>
+      {direction === "right" ? (
+        <RightArrow
+          className="arrow-icon"
+          style={{ fill: hover ? "#e1567b" : "#03045e" }}
+        />
+      ) : (
+        <LeftArrow
+          className="arrow-icon"
+          style={{ fill: hover ? "#e1567b" : "#03045e" }}
+        />
       )}
     </div>
   );
 };
 
-function reducer(state, action) {
-  if (state.size === "siguiente") {
-    switch (action) {
-      case "mouse_enter":
-        return {
-          size: "siguiente-color",
-        };
-    }
-  }
-
-  if (state.size === "siguiente-color") {
-    switch (action) {
-      case "mouse_leave":
-        return {
-          size: "siguiente",
-        };
-    }
-  }
-
-  if (state.size === "atras") {
-    switch (action) {
-      case "mouse_enter":
-        return {
-          size: "atras-color",
-        };
-    }
-  }
-
-  if (state.size === "atras-color") {
-    switch (action) {
-      case "mouse_leave":
-        return {
-          size: "atras",
-        };
-    }
-  }
-
-  return state;
-}
-
 Flechas.propTypes = {
-  size: PropTypes.oneOf([
-    "atras-color",
-    "back",
-    "siguiente",
-    "next",
-    "atras",
-    "siguiente-color",
-  ]),
-  vector: PropTypes.string,
+  direction: PropTypes.oneOf(["left", "right"]),
+  size: PropTypes.oneOf(["small", "normal", "large"]),
+  className: PropTypes.string,
 };

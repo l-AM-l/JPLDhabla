@@ -1,0 +1,34 @@
+.plus-minus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  height: 120px; /* adjust to your design */
+  width: 80px;   /* adjust to your design */
+}
+
+.plus-minus .pm-icon {
+  width: 70px;
+  height: 112.74px; /* keep same proportions as Flechas */
+  transition: transform 0.2s ease, filter 0.2s ease;
+  position: relative;
+  left: 5px;
+  top: 4px;
+}
+
+/* Hover effect */
+.plus-minus:hover .pm-icon {
+  transform: scale(1.05);
+}
+
+/* Optional size variations */
+.plus-minus.small {
+  width: 60px;
+  height: 90px;
+}
+
+.plus-minus.large {
+  width: 100px;
+  height: 150px;
+}

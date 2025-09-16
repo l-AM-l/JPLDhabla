@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
-import vector from "../../../assets/gear.png";
+import { ReactComponent as GearVector } from "../../../assets/gear.svg";
 
-export const Gear = () => {
+export const Gear = ({ className = "" }) => {
   return (
-    <div className="gear">
-      <img className="vector" alt="Vector" src={vector} />
+    <div className={`gear ${className}`}>
+      <GearVector className="vector" />
     </div>
   );
 };

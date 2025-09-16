@@ -9,7 +9,7 @@ function Home(){
                 <Link to="/InGame">InGame</Link> |{" "}
                 <Link to="/LevelOverlay">LevelOverlay</Link> |{" "}
                 <Link to="/LevelSelector">LevelSelector</Link> |{" "}
-                <Link to="/PlayerSelector">PlayerSelector</Link> |{" "}
+                <Link to="/Selector_Jugadores">Selector_Jugadores</Link> |{" "}
                 <Link to="/">Home</Link>
             </nav>
            

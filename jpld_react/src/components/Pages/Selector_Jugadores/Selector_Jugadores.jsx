@@ -1,63 +1,47 @@
-import PropTypes from "prop-types";
 import React from "react";
-import { Flechas } from "./Flechas";
-import { Person } from "./Person";
+import PropTypes from "prop-types";
+import { Flechas } from "../../Frames/Flechas/Flechas.jsx";
+import { Person } from "../../Frames/Person/Person.jsx";
+import { PlusMinus } from "../../Buttons/PlusMinus/PlusMinus.jsx";
+import { Gear } from "../../Buttons/Gear/Gear.jsx";
 import "./style.css";
 
-export const SelectorJugadores = ({
-  IMG = "IMG-0850-1.png",
-  img = "IMG-0849-1.png",
-  personUnion = "union-2.svg",
-  personVector = "vector-9.svg",
-  personImg = "vector-10.svg",
-  flechasVector = "vector-7.svg",
-  flechasImg = "vector-8.svg",
-  vector = "vector-5.svg",
-}) => {
+// Import assets as React components or images
+import IMG from "../../../assets/IMG_0850_1.png";
+import img from "../../../assets/IMG_0849_1.png";
+
+export const SelectorJugadores = () => {
   return (
     <div className="selector-jugadores">
       <div className="overlap-group">
-        <img className="IMG" alt="Img" src={IMG} />
+        <img className="background-img left" alt="Background left" src={IMG} />
+        <img className="background-img right" alt="Background right" src={img} />
+        
+        <div className="controls-wrapper vertical">
+          <div>
+            <Gear className="gear-instance" />
+          </div>
+          
+          <div className="controls-wrapper horizontal">
+            <PlusMinus type="minus" size="normal" className="minus-btn" />
+            <Person count={1} className="person-instance" />
+            <PlusMinus type="plus" size="normal" className="plus-btn" />
+          </div>
 
-        <img className="IMG-2" alt="Img" src={img} />
+          <div className="header">
+            <div className="text-wrapper">Jugadores en la sala</div>
+          </div>
 
-        <div className="frame">
-          <div className="text-wrapper-2">Jugadores en la sala</div>
+          <div className="controls-wrapper horizontal">
+            <Flechas className="flechas-2" direction="left" />
+            <Flechas className="flechas-2" direction="right" />
+          </div>
         </div>
-
-        <Person
-          className="person-instance"
-          img={personImg}
-          property1="default"
-          union={personUnion}
-          vector={personVector}
-          vectorClassName="design-component-instance-node"
-        />
-        <div className="flechas-wrapper">
-          <Flechas
-            className="flechas-instance"
-            size="siguiente"
-            vector={flechasVector}
-          />
-        </div>
-
-        <Flechas className="flechas-2" img={flechasImg} size="atras" />
       </div>
 
-      <div className="gear">
-        <img className="vector-4" alt="Vector" src={vector} />
-      </div>
+     
     </div>
   );
 };
 
-SelectorJugadores.propTypes = {
-  IMG: PropTypes.string,
-  img: PropTypes.string,
-  personUnion: PropTypes.string,
-  personVector: PropTypes.string,
-  personImg: PropTypes.string,
-  flechasVector: PropTypes.string,
-  flechasImg: PropTypes.string,
-  vector: PropTypes.string,
-};
+SelectorJugadores.propTypes = {};
