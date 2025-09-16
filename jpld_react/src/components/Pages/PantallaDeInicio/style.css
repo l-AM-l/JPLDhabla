@@ -1,144 +1,92 @@
-.pantalla-de-inicio {
-  background-color: #dff8fd;
-  height: 1024px;
-  position: relative;
-  width: 1440px;
+/* Ensure full viewport usage */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
+.pantalla-de-inicio {
+  background-color: #dff8fd;  
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Main overlap group */
 .pantalla-de-inicio .overlap-group {
-  height: 869px;
-  left: 0;
   position: absolute;
   top: 155px;
+  left: 0;
   width: 969px;
+  height: 869px;
 }
 
+/* Images with original Figma positions */
 .pantalla-de-inicio .IMG {
-  aspect-ratio: 1.43;
-  height: 672px;
-  left: 0;
-  object-fit: cover;
   position: absolute;
   top: 197px;
+  left: 0;
   width: 969px;
+  height: 672px;
+  object-fit: cover;
 }
 
 .pantalla-de-inicio .img {
-  aspect-ratio: 1.43;
-  height: 476px;
-  left: 0;
-  object-fit: cover;
   position: absolute;
   top: 393px;
+  left: 0;
   width: 605px;
-}
-
-.pantalla-de-inicio .salir-instance {
-  left: 480px !important;
-  position: absolute !important;
-  top: 543px !important;
-}
-
-.pantalla-de-inicio .iniciar-instance {
-  left: 480px !important;
-  position: absolute !important;
-  top: 295px !important;
+  height: 476px;
+  object-fit: cover;
 }
 
 .pantalla-de-inicio .IMG-2 {
-  aspect-ratio: 1;
-  height: 408px;
-  left: 279px;
-  object-fit: cover;
   position: absolute;
   top: 0;
+  left: 45%;
   width: 402px;
-}
-
-.pantalla-de-inicio .gear {
-  height: 133px;
-  left: 1267px;
-  position: absolute;
-  top: 22px;
-  width: 133px;
-}
-
-.pantalla-de-inicio .vector {
-  height: 110px;
-  left: 13px;
-  position: absolute;
-  top: 12px;
-  width: 107px;
-}
-.pantalla-de-inicio {
-  background-color: #dff8fd;
-  height: 1024px;
-  position: relative;
-  width: 1440px;
-}
-
-.pantalla-de-inicio .overlap-group {
-  height: 869px;
-  left: 0;
-  position: absolute;
-  top: 155px;
-  width: 969px;
-}
-
-.pantalla-de-inicio .IMG {
-  aspect-ratio: 1.43;
-  height: 672px;
-  left: 0;
+  height: 408px;
   object-fit: cover;
-  position: absolute;
-  top: 197px;
-  width: 969px;
 }
 
-.pantalla-de-inicio .img {
-  aspect-ratio: 1.43;
-  height: 476px;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 393px;
-  width: 605px;
-}
-
+/* Buttons keeping their absolute positions */
+.pantalla-de-inicio .iniciar-instance,
 .pantalla-de-inicio .salir-instance {
-  left: 480px !important;
-  position: absolute !important;
-  top: 543px !important;
+  position: absolute;
 }
 
 .pantalla-de-inicio .iniciar-instance {
-  left: 480px !important;
-  position: absolute !important;
-  top: 295px !important;
+  top: 295px;
+  left: 70% !important;
 }
 
-.pantalla-de-inicio .IMG-2 {
-  aspect-ratio: 1;
-  height: 408px;
-  left: 279px;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 402px;
+.pantalla-de-inicio .salir-instance {
+  top: 543px;
+  left: 70% !important;
 }
 
+/* Gear and vector icons */
 .pantalla-de-inicio .gear {
-  height: 133px;
-  left: 1267px;
   position: absolute;
-  top: 22px;
+  top: 20px;
+  right: 100px;
   width: 133px;
+  height: 133px;
 }
 
 .pantalla-de-inicio .vector {
-  height: 110px;
-  left: 13px;
   position: absolute;
   top: 12px;
+  left: 13px;
   width: 107px;
+  height: 110px;
+}
+
+/* Ensure images scale nicely if you resize the viewport */
+.pantalla-de-inicio img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

@@ -1,53 +1,52 @@
 .flechas {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column; /* stack arrow + text */
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  position: relative;
-  height: 120px; /* optional, adjust to your design */
-  width: 80px;   /* optional, adjust to your design */
+  gap: 6px; /* spacing between arrow and text */
+  width: auto;   /* let it grow with text */
+  height: auto;  /* let it grow with text */
 }
+
 
 .flechas .arrow-icon {
   width: 70px;
-  height: 112.74px; /* keeping your original proportions */
-  transition: transform 0.2s ease, filter 0.2s ease;
-  position: relative;
-  left: 5px; /* matches your old .vector offset */
-  top: 4px;
+  height: 112.74px;
+  transition: transform 0.2s ease, fill 0.2s ease;
+  fill: #03045e; /* default color */
 }
 
-/* Hover effect */
-.flechas:hover .arrow-icon {
-  transform: scale(1.05);
-  /* If you want color change, add filter or swap SVG fill */
-  /* filter: brightness(1.2); */
-}
-
-/* Optional text wrapper if you keep labels */
-.flechas .text-wrapper {
+.flechas .Atext-wrapper {
   font-family: var(--h3-font-family);
-  font-size: var(--h3-font-size);
+  font-size: 36px; /* smaller, adjust to taste */
   font-style: var(--h3-font-style);
   font-weight: var(--h3-font-weight);
-  height: 75px;
   letter-spacing: var(--h3-letter-spacing);
-  line-height: var(--h3-line-height);
-  position: relative;
-  text-align: center;
-  width: 281px;
-  color: #03045e; /* default */
+  line-height: 1.2;
+  color: #03045e;
+  transition: color 0.2s ease;
 }
 
-/* If you want color on hover for text */
-.flechas:hover .text-wrapper {
+/* Hover effect for both text and arrow */
+.flechas:hover .arrow-icon {
+  transform: scale(1.05);
+  fill: #e1567b;
+}
+
+.flechas:hover .Atext-wrapper {
   color: #e1567b;
 }
 
-/* Optional size variations */
+/* Size variations */
 .flechas.small {
   width: 60px;
   height: 90px;
+}
+
+.flechas.normal {
+  width: 80px;
+  height: 120px;
 }
 
 .flechas.large {

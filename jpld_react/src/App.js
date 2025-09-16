@@ -20,7 +20,7 @@ function App() {
     <DirectoryProvider>
       <Router>
         <Routes>
-          <Route path="/A" element={<PantallaDeInicio />} />
+          <Route path="/a" element={<PantallaDeInicio />} />
           <Route path="/" element={<SelectorJugadores />} />
         </Routes>
       </Router>

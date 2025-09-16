@@ -1,18 +1,26 @@
+/* Ensure full viewport usage */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .selector-jugadores {
   background-color: #dff8fd;
-  height: 1024px;
-  width: 1440px;
   position: relative;
   overflow: hidden;
+  width: 100vw;   /* full viewport width */
+  height: 100vh;  /* full viewport height */
 }
 
 .selector-jugadores .overlap-group {
-  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: stretch; /* fills vertical space */
 }
 
 .selector-jugadores .background-img {
@@ -23,25 +31,26 @@
 .selector-jugadores .background-img.left {
   width: 580px;
   height: 572px;
-  top: 196px;
+  bottom: 0px;
   left: 0;
 }
 
 .selector-jugadores .background-img.right {
   width: 384px;
   height: 384px;
-  top: 384px;
+  bottom: 0px;
   right: 0;
 }
 
 .selector-jugadores .header {
-  margin-top: 256px;
-  margin-bottom: 100px;
+  margin-top: 40px;       /* reduced */
+  margin-bottom: 20px;    /* reduced */
   text-align: center;
+  color: #03045e;
 }
 
 .selector-jugadores .text-wrapper {
-  color: #000000;
+  color: #03045e;
   font-family: var(--h1-font-family);
   font-size: var(--h1-font-size);
   font-style: var(--h1-font-style);
@@ -54,14 +63,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 0px;
   width: 100%;
   max-width: 1200px;
 }
 
 .selector-jugadores .players-grid {
   display: flex;
-  gap: 40px;
+  gap: 0px;
   justify-content: center;
   align-items: center;
 }
@@ -74,14 +83,12 @@
 }
 
 .selector-jugadores .person-instance {
-  width: 200px;
-  height: 300px;
+  width: 900px;
+  height: 200px;
 }
 
 .selector-jugadores .gear {
-  position: absolute;
-  top: 40px;
-  right: 140px;
+  position: relative; /* relative inside top-row now */
   z-index: 10;
 }
 
@@ -90,37 +97,40 @@
   height: 110px;
 }
 
-/* Container for the vertical stack */
+/* Container for vertical stack */
 .controls-wrapper.vertical {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;            /* reduced spacing */
+  align-items: center; /* center children horizontally */
+  justify-content: center; /* center children vertically */
+  gap: 20px; 
   width: 100%;
   position: relative;
 }
 
-/* Optional: adjust horizontal row */
+/* Horizontal row adjustments */
 .controls-wrapper.horizontal {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; /* center instead of space-between */
-  gap: 30px;              /* add controlled spacing between items */
-  width: auto;            /* don't stretch across the whole page */
-  padding: 0;             /* removed extra padding */
+  justify-content: space-between; 
+  width: 95%;                   
+  gap: 0;                          
 }
 
-.selector-jugadores .header {
-  margin-top: 40px;       /* reduced */
-  margin-bottom: 20px;    /* reduced */
-  text-align: center;
+/* NEW: Top row for gear */
+.top-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0px; /* distance from right edge */
 }
 
-
-
-
+/* NEW: Main row for PlusMinus + Person */
+.main-row {
+  justify-content: center;
+  margin-top: 20px; /* spacing from gear */
+}
 
 .minus-btn, .plus-btn {
   cursor: pointer;

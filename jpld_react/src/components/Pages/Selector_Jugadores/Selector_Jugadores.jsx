@@ -11,7 +11,7 @@ import {
   setPlayers
 } from "../../../context/DirectoryProvider.jsx";
 
-// Import assets as React components or images
+// Import assets
 import IMG from "../../../assets/IMG_0850_1.png";
 import img from "../../../assets/IMG_0849_1.png";
 
@@ -20,7 +20,9 @@ export const SelectorJugadores = () => {
   const playerCount = state.players;
 
   const handleIncrease = () => {
-    setPlayers(dispatch, playerCount + 1);
+    if (playerCount < 5) {
+      setPlayers(dispatch, playerCount + 1);
+    }
   };
 
   const handleDecrease = () => {
@@ -36,34 +38,40 @@ export const SelectorJugadores = () => {
         <img className="background-img right" alt="Background right" src={img} />
 
         <div className="controls-wrapper vertical">
-          <div>
+
+          {/* Top row: gear */}
+          <div className="top-row">
             <Gear className="gear-instance" />
           </div>
 
-          <div className="controls-wrapper horizontal">
+          {/* PlusMinus + Person row */}
+          <div className="controls-wrapper horizontal main-row">
             <PlusMinus
               type="minus"
-              size="normal"
+              size="large"
               className="minus-btn"
               onClick={handleDecrease}
             />
             <Person count={playerCount} className="person-instance" />
             <PlusMinus
               type="plus"
-              size="normal"
+              size="large"
               className="plus-btn"
               onClick={handleIncrease}
             />
           </div>
 
+          {/* Header */}
           <div className="header">
             <div className="text-wrapper">Jugadores en la sala</div>
           </div>
 
-          <div className="controls-wrapper horizontal">
+          {/* Arrows */}
+          <div className="controls-wrapper horizontal arrow-row">
             <Flechas className="flechas-2" direction="left" />
             <Flechas className="flechas-2" direction="right" />
           </div>
+
         </div>
       </div>
     </div>

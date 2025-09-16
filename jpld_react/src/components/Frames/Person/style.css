@@ -2,12 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: center; /* center the players horizontally */
-  gap: 20px; /* spacing between players */
+  gap: 0px; /* spacing between players */
 }
 
 .player-wrapper {
-  width: 128px;  /* optional: control size */
-  height: 128px;
+  width: 100%;  /* optional: control size */
+  height: 100%;
 }
 
 .player-icon {
