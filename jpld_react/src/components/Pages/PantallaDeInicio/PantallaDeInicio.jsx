@@ -1,28 +1,38 @@
-import React from "react";
+
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 import { Iniciar } from "../../Buttons/Iniciar/Iniciar.jsx";
 import { Salir } from "../../Buttons/Salir/Salir.jsx";
+import { Gear } from "../../Buttons/Gear/Gear.jsx";
+import { InGameConfig } from "../../Screens/InGameConfig/InGameConfig.jsx";
 import "./style.css";
 
 // Import images from assets
 import IMG from "../../../assets/IMG_0841_1.png";
 import img from "../../../assets/IMG_0841_2.png";
 import IMG1 from "../../../assets/IMG_0846_1.png";
-import vector from "../../../assets/gear.png";
 
 export const PantallaDeInicio = () => {
+
+  const [showConfig, setShowConfig] = useState(false);
+
+  const handleGearClick = () => setShowConfig(prev => !prev);
+
   return (
     <div className="pantalla-de-inicio">
       <div className="overlap-group">
+        {/* Gear directly inside overlap-group for absolute positioning */}
+        <Gear className="gear-instance" onClick={handleGearClick} />
+
+
         <img className="IMG" alt="Img" src={IMG} />
         <img className="img" alt="Img" src={img} />
         <Salir className="salir-instance" />
         <Iniciar className="iniciar-instance" />
         <img className="IMG-2" alt="Img" src={IMG1} />
-      </div>
 
-      <div className="gear">
-        <img className="vector" alt="Vector" src={vector} />
+        <InGameConfig className={showConfig ? "open" : ""} onClose={() => setShowConfig(false)} />
+  
       </div>
     </div>
   );

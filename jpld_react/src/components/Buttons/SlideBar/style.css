@@ -1,0 +1,56 @@
+.slidebar {
+  appearance: none; /* cross-browser */
+  -webkit-appearance: none;
+  width: 100%;
+  height: 70px; /* chunkier track */
+  border-radius: 50px;
+  background: #DA0463; /* red track */
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Track hover effect */
+.slidebar:hover {
+  background: #DA0463cc;
+}
+
+/* Webkit thumb */
+.slidebar::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 70px; /* bigger handle */
+  height: 70px;
+  border-radius: 50%;
+  background: #DBEDF3; /* light blue */
+  border: 2px solid #FFF;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.slidebar::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Firefox thumb */
+.slidebar::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #DBEDF3;
+  border: 2px solid #FFF;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/* Firefox track */
+.slidebar::-moz-range-track {
+  background: #DA0463;
+  height: 16px;
+  border-radius: 8px;
+}
+
+/* Hide numeric value under slider if default appears */
+.slidebar::-ms-tooltip {
+  display: none;
+}

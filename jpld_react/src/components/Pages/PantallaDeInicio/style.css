@@ -1,4 +1,3 @@
-/* Ensure full viewport usage */
 html, body, #root {
   margin: 0;
   padding: 0;
@@ -45,7 +44,7 @@ html, body, #root {
 .pantalla-de-inicio .IMG-2 {
   position: absolute;
   top: 0;
-  left: 45%;
+  left: 50%;
   width: 402px;
   height: 408px;
   object-fit: cover;
@@ -59,21 +58,22 @@ html, body, #root {
 
 .pantalla-de-inicio .iniciar-instance {
   top: 295px;
-  left: 70% !important;
+  left: 75% !important;
 }
 
 .pantalla-de-inicio .salir-instance {
   top: 543px;
-  left: 70% !important;
+  left: 75% !important;
 }
 
-/* Gear and vector icons */
+/* Gear fixed to viewport */
 .pantalla-de-inicio .gear {
-  position: absolute;
-  top: 20px;
-  right: 100px;
+  position: fixed; /* <-- changed from absolute */
+  top: 40px;
+  right: 10px;
   width: 133px;
   height: 133px;
+  z-index: 10;
 }
 
 .pantalla-de-inicio .vector {

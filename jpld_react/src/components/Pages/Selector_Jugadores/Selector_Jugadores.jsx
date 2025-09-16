@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Flechas } from "../../Frames/Flechas/Flechas.jsx";
 import { Person } from "../../Frames/Person/Person.jsx";
 import { PlusMinus } from "../../Buttons/PlusMinus/PlusMinus.jsx";
 import { Gear } from "../../Buttons/Gear/Gear.jsx";
+import { InGameConfig } from "../../Screens/InGameConfig/InGameConfig.jsx"; // <-- import InGameConfig
 import "./style.css";
 
-import {
-  useAppContext,
-  setPlayers
-} from "../../../context/DirectoryProvider.jsx";
+import { useAppContext, setPlayers } from "../../../context/DirectoryProvider.jsx";
 
 // Import assets
 import IMG from "../../../assets/IMG_0850_1.png";
@@ -18,6 +16,8 @@ import img from "../../../assets/IMG_0849_1.png";
 export const SelectorJugadores = () => {
   const { state, dispatch } = useAppContext();
   const playerCount = state.players;
+
+  const [showConfig, setShowConfig] = useState(false); // <-- state for InGameConfig
 
   const handleIncrease = () => {
     if (playerCount < 5) {
@@ -31,6 +31,10 @@ export const SelectorJugadores = () => {
     }
   };
 
+  const handleGearClick = () => {
+    setShowConfig((prev) => !prev);
+  };
+
   return (
     <div className="selector-jugadores">
       <div className="overlap-group">
@@ -38,10 +42,9 @@ export const SelectorJugadores = () => {
         <img className="background-img right" alt="Background right" src={img} />
 
         <div className="controls-wrapper vertical">
-
           {/* Top row: gear */}
           <div className="top-row">
-            <Gear className="gear-instance" />
+            <Gear className="gear-instance" onClick={handleGearClick} />
           </div>
 
           {/* PlusMinus + Person row */}
@@ -71,8 +74,13 @@ export const SelectorJugadores = () => {
             <Flechas className="flechas-2" direction="left" />
             <Flechas className="flechas-2" direction="right" />
           </div>
-
         </div>
+
+        {/* InGameConfig Panel */}
+        <InGameConfig
+          className={showConfig ? "open" : ""}
+          onClose={() => setShowConfig(false)}
+        />
       </div>
     </div>
   );
