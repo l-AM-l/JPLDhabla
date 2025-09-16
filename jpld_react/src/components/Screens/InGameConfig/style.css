@@ -1,81 +1,63 @@
-/* InGameConfig Panel */
 .in-game-config {
   position: fixed;
   top: 0;
-  right: -600px; /* hidden initially */
+  right: -600px;
   width: 450px;
   height: 100%;
-  background-color: #03045e; /* dark blue background */
+  background-color: var(--dark-color);
   box-shadow: -10px 0 25px rgba(0,0,0,0.25);
   z-index: 50;
   padding: 35px 30px;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  border-left: 4px solid #DA0463; /* red accent border */
+  border-left: 4px solid var(--accent-color);
   transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: var(--h1-font-family);
-  color: #FFF; /* text color */
+  font-family: var(--font-body);
+  color: var(--white-color);
 }
 
-/* Slide-in when open */
-.in-game-config.open {
-  right: 0;
-}
+/* Slide-in */
+.in-game-config.open { right: 0; }
 
 /* Ready button */
 .ready {
   position: absolute;
-  left: -60px; /* attached to the panel */
+  left: -60px;
   top: 50%;
   transform: translateY(-50%);
   width: 60px;
   height: 60px;
   cursor: pointer;
   z-index: 55;
-  background-color: #DA0463; /* red */
+  background-color: var(--accent-color);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s, transform 0.2s;
 }
+.ready:hover { background-color: #404B69; transform: translateY(-50%) scale(1.15); }
+.ready-icon { width: 65%; height: 65%; fill: var(--white-color); }
 
-.ready:hover {
-  background-color: #404B69;
-  transform: translateY(-50%) scale(1.15);
-}
-
-.ready-icon {
-  width: 65%;
-  height: 65%;
-  fill: #FFF;
-  pointer-events: none;
-}
-
-/* Config header */
+/* Header */
 .in-game-config h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #FFF;
   margin-bottom: 25px;
   text-align: center;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  font-family: var(--h1-font-family);
+  font-family: var(--font-h1);
+  font-size: var(--h1-size);
+  font-weight: var(--h1-weight);
+  color: var(--white-color);
 }
 
-/* Config rows */
-.config-row {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
-}
-
-/* Row labels */
+/* Rows */
+.config-row { display: flex; flex-direction: column; align-items: flex-start; gap: 15px; }
 .config-row span {
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  color: var(--white-color);
   margin-bottom: 5px;
 }
 
@@ -83,16 +65,14 @@
 .close-btn {
   margin-top: auto;
   padding: 14px 24px;
-  background-color: #DA0463; /* red */
-  color: #FFF;
+  background-color: var(--accent-color);
   border: none;
   border-radius: 10px;
-  font-weight: 600;
   cursor: pointer;
-  font-size: 1.2rem;
   transition: background-color 0.3s;
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  color: var(--white-color);
 }
-
-.close-btn:hover {
-  background-color: #404B69; /* darker hover */
-}
+.close-btn:hover { background-color: #404B69; }

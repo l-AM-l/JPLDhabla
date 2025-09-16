@@ -20,7 +20,7 @@
   line-height: var(--h1-line-height);
   position: absolute;
   text-align: center;
-  top: -1px;
+  top: 25%;
   width: 480px;
 }
 
