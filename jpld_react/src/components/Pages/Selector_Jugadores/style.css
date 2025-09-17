@@ -6,14 +6,16 @@ html, body, #root {
   height: 100%;
 }
 
+/* Main container */
 .selector-jugadores {
-  background-color: #dff8fd;
+  background-color: var(--light-color);
   position: relative;
   overflow: hidden;
-  width: 100vw;   /* full viewport width */
-  height: 100vh;  /* full viewport height */
+  width: 100vw;
+  height: 100vh;
 }
 
+/* Header text */
 .header .text-wrapper {
   font-family: var(--font-h1);
   font-size: var(--h2-size);
@@ -21,27 +23,27 @@ html, body, #root {
   color: var(--dark-color);
 }
 
+/* Overlap container */
 .selector-jugadores .overlap-group {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: stretch; /* fills vertical space */
+  justify-content: stretch;
 }
 
+/* Background images */
 .selector-jugadores .background-img {
   position: absolute;
   object-fit: cover;
 }
-
 .selector-jugadores .background-img.left {
   width: 580px;
   height: 572px;
   bottom: 0px;
   left: 0;
 }
-
 .selector-jugadores .background-img.right {
   width: 384px;
   height: 384px;
@@ -49,15 +51,15 @@ html, body, #root {
   right: 0;
 }
 
+/* Header */
 .selector-jugadores .header {
-  margin-top: 40px;       /* reduced */
-  margin-bottom: 20px;    /* reduced */
+  margin-top: 40px;
+  margin-bottom: 20px;
   text-align: center;
-  color: #03045e;
+  color: var(--dark-color);
 }
-
 .selector-jugadores .text-wrapper {
-  color: #03045e;
+  color: var(--dark-color);
   font-family: var(--h1-font-family);
   font-size: var(--h1-font-size);
   font-style: var(--h1-font-style);
@@ -66,15 +68,14 @@ html, body, #root {
   line-height: normal;
 }
 
+/* Players container */
 .selector-jugadores .players-container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0px;
   width: 100%;
-  max-width: 1200px;
 }
-
 .selector-jugadores .players-grid {
   display: flex;
   gap: 0px;
@@ -82,6 +83,7 @@ html, body, #root {
   align-items: center;
 }
 
+/* Arrows */
 .selector-jugadores .flechas {
   cursor: pointer;
   width: 80px;
@@ -89,67 +91,76 @@ html, body, #root {
   flex-shrink: 0;
 }
 
+/* Person instance */
 .selector-jugadores .person-instance {
-  width: 900px;
-  height: 200px;
+  width: 900px;                  /* fixed width */
+  height: 200px;                 /* fixed height */
+  max-width: none;               /* ignore vw scaling */
+  max-height: none;
+  transform-origin: center center; /* ensures growth from center */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;              /* prevents spilling outside */
+  flex-shrink: 0;                /* prevents shrinking */
 }
 
-.selector-jugadores .gear{
-  position: relative; /* relative inside top-row now */
+
+/* Gear */
+.selector-jugadores .gear {
+  position: relative;
   z-index: 10;
   top: 20%;
   right: -46%;
   width: 133px;
   height: 133px;
-  z-index: 10;
   cursor: pointer;
 }
 
-
-
+/* Vector */
 .selector-jugadores .vector-4 {
   width: 107px;
   height: 110px;
 }
 
-/* Container for vertical stack */
+/* Vertical stack */
 .controls-wrapper.vertical {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center children horizontally */
-  justify-content: center; /* center children vertically */
-  gap: 10%; 
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
   width: 100%;
   position: relative;
 }
 
-/* Horizontal row adjustments */
+/* Horizontal row */
 .controls-wrapper.horizontal {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between; 
-  width: 95%;                   
-  gap: 0;                          
+  justify-content: space-between;
+  width: 95%;
+  gap: 0;
 }
 
-/* NEW: Top row for gear */
+/* Top row for gear */
 .top-row {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: 0 0px; /* distance from right edge */
+  padding: 0 0px;
 }
 
-/* NEW: Main row for PlusMinus + Person */
+/* Main row for PlusMinus + Person */
 .main-row {
+  display: flex;
   justify-content: center;
-  margin-top: 10%; /* spacing from gear */
+  align-items: center;
+  margin-top: 10%;
 }
 
+/* Plus/Minus buttons */
 .minus-btn, .plus-btn {
   cursor: pointer;
 }
-
-
-

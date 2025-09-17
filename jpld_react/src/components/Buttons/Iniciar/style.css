@@ -1,5 +1,5 @@
 .iniciar {
-  background-color: #0077b6;
+  background-color: var(--blue-color);
   border-radius: 30px;
   box-shadow: 0px 10px 4px #0000004c;
   height: 197px;
@@ -9,7 +9,7 @@
 }
 
 .iniciar .text-wrapper {
-  color: #ffffff;
+  color: var(--white-color);
   font-family: var(--h1-font-family);
   font-size: var(--h1-font-size);
   font-style: var(--h1-font-style);

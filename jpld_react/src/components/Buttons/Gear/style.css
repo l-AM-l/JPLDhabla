@@ -11,7 +11,7 @@
 .gear .vector {
   height: 110px;
   width: 107px;
-  color: #03045e; /* default color */
+  color: var(--dark-color); /* default color */
   transition: color 0.3s ease, transform 0.3s ease;
 }
 

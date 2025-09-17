@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 // Import arrow SVGs as React components
-import { ReactComponent as LeftArrow } from "../../../assets/left_arrow.svg";
-import { ReactComponent as RightArrow } from "../../../assets/right_arrow.svg";
+import { ReactComponent as LeftArrow } from "../../../assets/back_arrow01.svg";
+import { ReactComponent as RightArrow } from "../../../assets/next_arrow01.svg";
 import { ReactComponent as LeftArrow2 } from "../../../assets/left_arrow2.svg";   // thick
 import { ReactComponent as RightArrow2 } from "../../../assets/right_arrow2.svg"; // thick
 import "./style.css";
