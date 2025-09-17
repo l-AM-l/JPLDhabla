@@ -23,23 +23,71 @@ export const Level = () => {
   const handleGearClick = () => setShowConfig((p) => !p);
 
   // Phrases mapping
-  const phrases = {
-    0: [
-      ["Ruge como un león", "Salta como un mono", "Camina como un elefante"],
-      ["Ruge fuerte", "Salta rápido", "Camina pesado"],
-      ["Ruge muy fuerte", "Salta muy alto", "Camina muy lento"],
+const phrases = {
+  0: [
+    // Easy
+    [
+      "RU-GE CO-MO UN LE-ÓN",
+      "SAL-TA CO-MO UN MO-NO",
+      "CA-MI-NA CO-MO UN E-LE-FAN-TE"
     ],
-    1: [
-      ["Corre rápido", "Patea la pelota", "Salta la valla"],
-      ["Corre más rápido", "Patea fuerte", "Salta más alto"],
-      ["Corre sin parar", "Patea con fuerza", "Salta lo máximo"],
+    // Medium
+    [
+      "RU-GE FUER-TE CO-MO UN LE-ÓN",
+      "SAL-TA RÁ-PI-DO CO-MO UN MO-NO",
+      "CA-MI-NA LEN-TO CO-MO UN E-LE-FAN-TE"
     ],
-    2: [
-      ["Nada como un pez", "Camina en la arena", "Construye un castillo"],
-      ["Nada más lejos", "Camina más rápido", "Construye más grande"],
-      ["Nada sin parar", "Corre en la arena", "Construye enorme"],
+    // Hard
+    [
+      "RU-GE TAN FUER-TE QUE TO-DOS TE ES-CU-CHEN",
+      "SAL-TA MUY AL-TO Y NO TO-QUES EL SUE-LO POR UN MO-MEN-TO",
+      "CA-MI-NA MUY LEN-TO Y PE-SA-DO CO-MO UN E-LE-FAN-TE E-NOR-ME"
     ],
-  };
+  ],
+  1: [
+    // Easy
+    [
+      "CO-RRE RÁ-PI-DO",
+      "PA-TE-A LA PE-LO-TA",
+      "SAL-TA LA VA-LLA"
+    ],
+    // Medium
+    [
+      "CO-RRE MÁS RÁ-PI-DO",
+      "PA-TE-A FUER-TE",
+      "SAL-TA MÁS AL-TO"
+    ],
+    // Hard
+    [
+      "CO-RRE SIN PA-RAR CO-MO UN CAM-PE-ÓN DE MA-RA-TÓN",
+      "PA-TE-A CON TO-DA TU FUER-ZA HAS-TA QUE LA PE-LO-TA VUE-LE LE-JOS",
+      "SAL-TA LO MÁ-XI-MO Y LLE-GA HAS-TA EL O-TRO LA-DO SIN TRO-PE-ZAR"
+    ],
+  ],
+  2: [
+    // Easy
+    [
+      "NA-DA CO-MO UN PEZ",
+      "CA-MI-NA EN LA A-RE-NA",
+      "CONS-TRU-YE UN CAS-TI-LLO"
+    ],
+    // Medium
+    [
+      "NA-DA MÁS LE-JOS",
+      "CA-MI-NA MÁS RÁ-PI-DO",
+      "CONS-TRU-YE MÁS GRAN-DE"
+    ],
+    // Hard
+    [
+      "NA-DA SIN PA-RAR HAS-TA QUE CRU-CES TO-DA LA PLA-YA",
+      "CO-RRE EN LA A-RE-NA HAS-TA QUE TE DUE-LAN LAS PIER-NAS",
+      "CONS-TRU-YE UN E-NOR-ME CAS-TI-LLO CON MU-CHAS TO-RRES Y PUEN-TES"
+    ],
+  ],
+};
+
+
+
 
   // Backgrounds mapping
   const backgrounds = {
@@ -56,7 +104,7 @@ export const Level = () => {
   };
 
   const currentPhrase =
-    phrases[level]?.[difficulty - 1]?.[subLevel - 1] || "Frase no disponible";
+    phrases[level%3]?.[difficulty - 1]?.[subLevel - 1] || "Frase no disponible";
 
   const BackgroundSVG = backgrounds[level] || JungleBackground;
   const AnimalSVG = animals[level] || JungleAnimal;
