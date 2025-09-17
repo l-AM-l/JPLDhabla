@@ -1,10 +1,14 @@
+// src/Frames/CarruselFunc/CarruselFunc.jsx
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Flechas } from "../../Frames/Flechas/Flechas.jsx";
 import "./style.css";
 
-export const CarruselFunc = ({ items = [] }) => {
+import { useAppContext, setLevel } from "../../../context/DirectoryProvider";
+
+export const CarruselFunc = ({ items = [], onSelectLevel }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { dispatch } = useAppContext();
 
   if (!items || items.length === 0) return null;
 
@@ -24,6 +28,14 @@ export const CarruselFunc = ({ items = [] }) => {
 
   const handleClickItem = (index) => {
     setCurrentIndex(index);
+    const isCenter = index === currentIndex;
+    if (isCenter) {
+      // update level in provider
+      setLevel(dispatch, index + 1).then(() => {
+        console.log("Level updated:", index + 1);
+        if (onSelectLevel) onSelectLevel(index + 1);
+      });
+    }
   };
 
   return (
@@ -44,15 +56,13 @@ export const CarruselFunc = ({ items = [] }) => {
               className={`carousel-item ${isCenter ? "center-hover" : ""}`}
               onClick={() => handleClickItem(index)}
               style={{
-                transform: `translateX(${offset * 180}px) scale(${
-                  isCenter ? 1.3 : 0.8
-                })`,
+                transform: `translateX(${offset * 180}px) scale(${isCenter ? 1.3 : 0.8})`,
                 zIndex: 100 - absOffset,
                 filter: isCenter ? "none" : "grayscale(100%)",
                 opacity: absOffset > 2 ? 0 : 1,
                 transition:
                   "transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease",
-                cursor: "pointer",
+                cursor: isCenter ? "pointer" : "default",
               }}
             >
               {typeof Item === "string" ? (
@@ -80,4 +90,5 @@ CarruselFunc.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.elementType])
   ),
+  onSelectLevel: PropTypes.func, // callback when center item clicked
 };

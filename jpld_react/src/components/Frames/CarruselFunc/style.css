@@ -52,3 +52,55 @@
   transform: scale(2) !important;
   z-index: 3;
 }
+
+
+/* src/Frames/CarruselFunc/style.css */
+
+/* Position LevelInfo below the center carousel item */
+.level-info-container {
+  position: absolute;
+  bottom: -220px; /* adjust distance from carousel */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  min-width: 300px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.level-info-container h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.difficulty-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.difficulty-container svg {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.difficulty-container svg:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}

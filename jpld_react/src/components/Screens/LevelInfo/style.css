@@ -1,0 +1,56 @@
+/* src/Screens/LevelInfo/style.css */
+
+.level-info-container {
+  position: absolute;
+  bottom: -220px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--light-color);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  min-width: 300px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  pointer-events: none; /* avoid clicks when invisible */
+  transition: all 0.4s ease-in;
+}
+
+.level-info-container.fade-up {
+  opacity: 1;
+  bottom: 180px; /* moves slightly up */
+  pointer-events: auto;
+}
+
+.difficulty-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.difficulty {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  fill: var(--inactive-color, #ccc);
+  transition: transform 0.3s ease, filter 0.3s ease, fill 0.3s ease;
+}
+
+.difficulty:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+}
+
+.difficulty.selected {
+  fill: var(--accent-color, orange);
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
