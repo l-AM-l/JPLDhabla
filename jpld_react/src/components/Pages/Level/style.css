@@ -1,6 +1,6 @@
 .level-container {
   width: 100%;
-  height: 100vh; /* full viewport height */
+  height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -25,6 +25,26 @@
   z-index: 1;
 }
 
+/* Animation keyframes: center to final position */
+@keyframes flyIn {
+  0% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-103.5%, -50%) scale(1.065);
+    opacity: 1;
+  }
+}
+
+.level-animal.intro {
+  position: absolute;      /* start from center of viewport */
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  animation: flyIn 1s cubic-bezier(0.65, 0, 0.35, 1) forwards; /* smooth easing */
+}
+
 .animal-svg {
   max-width: 60%;
   height: auto;
@@ -39,9 +59,17 @@
   justify-content: center;
   position: relative;
   z-index: 2;
+  opacity: 0; /* initially hidden */
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* Gear fixed in top-right, like other screens */
+.level-overlay.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gear fixed in top-right */
 .gear-instance {
   position: fixed;
   top: 40px;
@@ -59,5 +87,3 @@
   cursor: pointer;
   z-index: 10;
 }
-
-

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import { LevelOverlay } from "../../Screens/LevelOverlay/LevelOverlay.jsx";
 import { useAppContext } from "../../../context/DirectoryProvider.jsx";
@@ -21,6 +21,8 @@ export const Level = () => {
 
   const [showConfig, setShowConfig] = useState(false);
   const handleGearClick = () => setShowConfig((p) => !p);
+
+  const [animateIntro, setAnimateIntro] = useState(true); // NEW
 
   // Phrases mapping
 const phrases = {
@@ -110,32 +112,37 @@ const phrases = {
   const AnimalSVG = animals[level] || JungleAnimal;
 
 
+  useEffect(() => {
+    // Show overlay after animal finishes flying in
+    const timer = setTimeout(() => setAnimateIntro(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
     <div className="level-container">
-      {/* Background full-screen */}
       <BackgroundSVG className="background-svg" />
 
       <Gear className="gear-instance" onClick={handleGearClick} />
 
-      {/* Animal foreground */}
-      <div className="level-animal">
+      <div className={`level-animal ${animateIntro ? "intro" : ""}`} onAnimationEnd={() => setAnimateIntro(false)}>
         <AnimalSVG className="animal-svg" />
       </div>
 
-      {/* Overlay right */}
-      <div className="level-overlay">
+
+      <div className={`level-overlay ${animateIntro ? "" : "show"}`}>
         <LevelOverlay text={currentPhrase} />
       </div>
 
-      <div className="back-button">
-              <Flechas direction="left" to="/level_selector" />
-        </div>
 
-      {/* InGameConfig Panel */}
-              <InGameConfig
-                className={showConfig ? "open" : ""}
-                onClose={() => setShowConfig(false)}
-              />
+      <div className="back-button">
+        <Flechas direction="left" to="/level_selector" />
+      </div>
+
+      <InGameConfig
+        className={showConfig ? "open" : ""}
+        onClose={() => setShowConfig(false)}
+      />
     </div>
   );
 };
