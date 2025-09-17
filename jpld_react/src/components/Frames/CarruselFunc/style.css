@@ -59,8 +59,6 @@
 /* Position LevelInfo below the center carousel item */
 .level-info-container {
   position: absolute;
-  bottom: -220px; /* adjust distance from carousel */
-  left: 50%;
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.95);
   border-radius: 12px;

@@ -42,10 +42,9 @@ export const SelectorJugadores = () => {
         <img className="background-img right" alt="Background right" src={img} />
 
         <div className="controls-wrapper vertical">
+          
           {/* Top row: gear */}
-          <div className="top-row">
             <Gear className="gear-instance" onClick={handleGearClick} />
-          </div>
 
           {/* PlusMinus + Person row */}
           <div className="controls-wrapper horizontal main-row">

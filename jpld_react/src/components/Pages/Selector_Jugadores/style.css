@@ -94,10 +94,18 @@ html, body, #root {
   height: 200px;
 }
 
-.selector-jugadores .gear {
+.selector-jugadores .gear{
   position: relative; /* relative inside top-row now */
   z-index: 10;
+  top: 20%;
+  right: -46%;
+  width: 133px;
+  height: 133px;
+  z-index: 10;
+  cursor: pointer;
 }
+
+
 
 .selector-jugadores .vector-4 {
   width: 107px;

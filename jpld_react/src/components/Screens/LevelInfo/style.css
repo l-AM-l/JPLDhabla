@@ -1,31 +1,40 @@
-/* src/Screens/LevelInfo/style.css */
+/* Fullscreen dark overlay */
+.level-info-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* above everything else */
+  pointer-events: auto; /* enable clicks inside */
+}
 
+/* Existing LevelInfo container */
 .level-info-container {
-  position: absolute;
-  bottom: -220px;
-  left: 50%;
-  transform: translateX(-50%);
   background: var(--light-color);
   border-radius: 12px;
   padding: 1.5rem 2rem;
   min-width: 300px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   opacity: 0;
-  pointer-events: none; /* avoid clicks when invisible */
-  transition: all 0.4s ease-in;
+  transform: translateY(50px);
+  transition: all 0.4s ease-in-out;
 }
 
 .level-info-container.fade-up {
   opacity: 1;
-  bottom: 180px; /* moves slightly up */
-  pointer-events: auto;
+  transform: translateY(0);
 }
 
+/* Difficulty icons */
 .difficulty-container {
   display: flex;
   gap: 1rem;
@@ -48,6 +57,7 @@
   fill: var(--accent-color, orange);
 }
 
+/* Buttons */
 .buttons-container {
   display: flex;
   flex-direction: column;

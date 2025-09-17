@@ -16,31 +16,43 @@ export const LevelInfo = ({ level, visible, onCancel }) => {
     setDifficulty(dispatch, diff);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setShowClass(visible);
   }, [visible]);
 
+  if (!visible) return null; // hide completely when not visible
+
   return (
-    <div className={`level-info-container ${showClass ? "fade-up" : ""}`}>
-      <h2>Nivel {level}</h2>
-      <div>Dificultad</div>
-      <div className="difficulty-container">
-        <Easy
-          className={`difficulty ${selectedDiff === 1 ? "selected" : ""}`}
-          onClick={() => handleSelectDiff(1)}
-        />
-        <Medium
-          className={`difficulty ${selectedDiff === 2 ? "selected" : ""}`}
-          onClick={() => handleSelectDiff(2)}
-        />
-        <Hard
-          className={`difficulty ${selectedDiff === 3 ? "selected" : ""}`}
-          onClick={() => handleSelectDiff(3)}
-        />
-      </div>
-      <div className="buttons-container">
-        <Iniciar text="Continuar" to="/selector_jugadores" className="btn-continue" />
-        <Iniciar text="Cancelar" onClick={onCancel} className="btn-cancel" />
+    <div className="level-info-backdrop">
+      <div className={`level-info-container ${showClass ? "fade-up" : ""}`}>
+        <h2>Nivel {level}</h2>
+        <div>Dificultad</div>
+        <div className="difficulty-container">
+          <Easy
+            className={`difficulty ${selectedDiff === 1 ? "selected" : ""}`}
+            onClick={() => handleSelectDiff(1)}
+          />
+          <Medium
+            className={`difficulty ${selectedDiff === 2 ? "selected" : ""}`}
+            onClick={() => handleSelectDiff(2)}
+          />
+          <Hard
+            className={`difficulty ${selectedDiff === 3 ? "selected" : ""}`}
+            onClick={() => handleSelectDiff(3)}
+          />
+        </div>
+        <div className="buttons-container">
+          <Iniciar
+            text="Continuar"
+            to="/selector_jugadores"
+            className="btn-continue"
+          />
+          <Iniciar
+            text="Cancelar"
+            onClick={onCancel}
+            className="btn-cancel"
+          />
+        </div>
       </div>
     </div>
   );
