@@ -49,7 +49,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 64px;
-  height: 64px;
+  transform: scale(2) !important;
   z-index: 3;
 }
