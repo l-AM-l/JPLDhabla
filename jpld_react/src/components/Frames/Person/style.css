@@ -20,5 +20,5 @@
 
 .player-icon:hover {
   transform: scale(1.1);
-  fill: #e1567b;
+  fill: var(--accent-color);
 }

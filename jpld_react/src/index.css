@@ -55,7 +55,8 @@ code {
   --h3-weight: 500;
   --body-weight: 400;
 
-  --accent-color: #DA0463;
+  --accent-color: #e1567b;
+  --accent-color-2: #f4bb49;
   --dark-color: #03045e;
   --light-color: #dff8fd;
   --white-color: #ffffff;
@@ -96,3 +97,25 @@ p, span, div, label, button {
 .text-accent { color: var(--accent-color); }
 .text-dark { color: var(--dark-color); }
 .text-light { color: var(--light-color); }
+
+.orange-icon {
+  position: absolute;
+  bottom: -30%; /* adjust distance from bottom */
+  right: -15%;  /* adjust distance from right */
+  width: 40vw; /* adjust size */
+  height: auto;
+  color: var(--accent-color); /* set the color */
+  z-index: 1;   /* make sure it’s above background but below modals */
+  transition: transform 0.3s ease;
+}
+
+.orange-icon2 {
+  position: absolute;
+  bottom: -20%; /* adjust distance from bottom */
+  right: -10%;  /* adjust distance from right */
+  width: 30vw; /* adjust size */
+  height: auto;
+  color: var(--accent-color-2); /* set the color */
+  z-index: 2;   /* make sure it’s above background but below modals */
+  transition: transform 0.3s ease;
+}

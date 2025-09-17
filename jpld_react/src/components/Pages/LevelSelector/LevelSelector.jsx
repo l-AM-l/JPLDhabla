@@ -4,12 +4,14 @@ import { CarruselFunc } from "../../Frames/CarruselFunc/CarruselFunc.jsx";
 import { Flechas } from "../../Frames/Flechas/Flechas.jsx";
 import { Gear } from "../../Buttons/Gear/Gear.jsx";
 import { InGameConfig } from "../../Screens/InGameConfig/InGameConfig.jsx";
+
 import "./style.css";
 
 // IMPORTANT: import your SVGs as React components (SVGR)
 import { ReactComponent as Stadium } from "../../../assets/stadium.svg";
 import { ReactComponent as Beach } from "../../../assets/beach.svg";
 import { ReactComponent as Forest } from "../../../assets/forest.svg";
+import { ReactComponent as OrangeIcon } from "../../../assets/cloud.svg";
 
 export const LevelSelector = () => {
   const [showConfig, setShowConfig] = useState(false);
@@ -35,6 +37,10 @@ export const LevelSelector = () => {
         className={showConfig ? "open" : ""}
         onClose={() => setShowConfig(false)}
       />
+
+      <OrangeIcon className="orange-icon2" />
+      <OrangeIcon className="orange-icon" />
+
     </div>
   );
 };

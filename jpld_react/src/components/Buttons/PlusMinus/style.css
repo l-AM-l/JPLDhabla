@@ -13,6 +13,7 @@
   height: 80%;
   transition: transform 0.2s ease, filter 0.2s ease;
   position: relative;
+  fill: var(--dark-color);
   left: 0;
   top: 0;
 }
@@ -21,6 +22,7 @@
 /* Hover effect */
 .plus-minus:hover .pm-icon {
   transform: scale(1.05);
+  fill: var(--accent-color);
 }
 
 /* Optional size variations */

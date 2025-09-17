@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  border-left: 4px solid var(--accent-color);
+  border-left: 8px solid var(--accent-color);
   transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: var(--font-body);
   color: var(--white-color);
@@ -37,7 +37,7 @@
   align-items: center;
   transition: background-color 0.3s, transform 0.2s;
 }
-.ready:hover { background-color: #404B69; transform: translateY(-50%) scale(1.15); }
+.ready:hover { background-color: var(--accent-color-2); transform: translateY(-50%) scale(1.05); }
 .ready-icon { width: 65%; height: 65%; fill: var(--white-color); }
 
 /* Header */
@@ -75,4 +75,4 @@
   font-weight: var(--body-weight);
   color: var(--white-color);
 }
-.close-btn:hover { background-color: #404B69; }
+.close-btn:hover { background-color: var(--accent-color-2); }

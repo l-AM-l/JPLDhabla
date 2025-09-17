@@ -25,7 +25,7 @@
 }
 
 .iniciar:hover {
-  background-color: #004266;
+  background-color: var(--accent-color);
 }
 
 :root {

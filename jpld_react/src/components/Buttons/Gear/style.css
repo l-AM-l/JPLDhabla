@@ -16,6 +16,6 @@
 }
 
 .gear:hover .vector {
-  color: #e1567b; /* hover color */
+  color: var(--accent-color); /* hover color */
   transform: rotate(30deg); /* optional, adds gear rotation effect */
 }

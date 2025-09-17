@@ -26,12 +26,10 @@ export const PlusMinus = ({
       {type === "plus" ? (
         <PlusVector
           className="pm-icon"
-          style={{ fill: hover ? "#e1567b" : "#03045e" }}
         />
       ) : (
         <MinusVector
           className="pm-icon"
-          style={{ fill: hover ? "#e1567b" : "#03045e" }}
         />
       )}
     </div>

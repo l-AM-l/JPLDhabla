@@ -22,8 +22,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/b" element={<PantallaDeInicio />} />
-          <Route path="/a" element={<SelectorJugadores />} />
-          <Route path="/" element={<LevelSelector />} />
+          <Route path="/" element={<SelectorJugadores />} />
+          <Route path="/a" element={<LevelSelector />} />
         </Routes>
       </Router>
     </DirectoryProvider>
