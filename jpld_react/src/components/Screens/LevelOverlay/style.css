@@ -1,0 +1,53 @@
+.level-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  background-color: var(--light-color);
+}
+
+.level-background {
+  position: absolute;
+  inset: 0;
+  background: url("../../../assets/stadium_back.svg") no-repeat center center / cover;
+  z-index: 0;
+}
+
+.level-animal {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.level-animal img {
+  max-width: 60%;
+  height: auto;
+}
+
+.level-overlay {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Overlay box */
+.overlay-container {
+  background: var(--white-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+  max-width: 70%;
+}
+
+.overlay-text {
+  font-family: var(--font-h2);
+  font-size: var(--h2-size);
+  color: var(--dark-color);
+  font-weight: var(--h2-weight);
+}

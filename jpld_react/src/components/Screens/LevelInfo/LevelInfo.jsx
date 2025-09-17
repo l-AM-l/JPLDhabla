@@ -44,7 +44,7 @@ export const LevelInfo = ({ level, visible, onCancel }) => {
         <div className="buttons-container">
           <Iniciar
             text="Continuar"
-            to="/selector_jugadores"
+            to="/level"
             className="btn-continue"
           />
           <Iniciar

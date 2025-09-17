@@ -7,7 +7,7 @@ import Home from './components/Pages/Home.jsx';
 import {PantallaDeInicio} from './components/Pages/PantallaDeInicio/PantallaDeInicio.jsx';
 import {SelectorJugadores} from './components/Pages/Selector_Jugadores/Selector_Jugadores.jsx';
 import {LevelSelector} from './components/Pages/LevelSelector/LevelSelector.jsx';
-
+import {Level} from './components/Pages/Level/Level.jsx';
 /*
 import Configuration from './components/Pages/Configuration.jsx';
 import InGame from './components/Pages/InGame.jsx';
@@ -24,6 +24,7 @@ function App() {
           <Route path="/" element={<PantallaDeInicio />} />
           <Route path="/selector_jugadores" element={<SelectorJugadores />} />
           <Route path="/level_selector" element={<LevelSelector />} />
+          <Route path="/level" element={<Level />} />
         </Routes>
       </Router>
     </DirectoryProvider>
