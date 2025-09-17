@@ -21,9 +21,9 @@ function App() {
     <DirectoryProvider>
       <Router>
         <Routes>
-          <Route path="/b" element={<PantallaDeInicio />} />
-          <Route path="/" element={<SelectorJugadores />} />
-          <Route path="/a" element={<LevelSelector />} />
+          <Route path="/" element={<PantallaDeInicio />} />
+          <Route path="/selector_jugadores" element={<SelectorJugadores />} />
+          <Route path="/level_selector" element={<LevelSelector />} />
         </Routes>
       </Router>
     </DirectoryProvider>

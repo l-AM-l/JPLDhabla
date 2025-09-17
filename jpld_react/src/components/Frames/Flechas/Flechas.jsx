@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 // Import arrow SVGs as React components
 import { ReactComponent as LeftArrow } from "../../../assets/left_arrow.svg";
@@ -14,7 +15,10 @@ export const Flechas = ({
   className = "",
   showText = true,
   variant = "thin",
+  to = null, // optional route to navigate to
+  onClick = null, // optional callback
 }) => {
+  const navigate = useNavigate();
   const isRight = direction === "right";
   const isThick = variant === "thick";
 
@@ -26,18 +30,24 @@ export const Flechas = ({
     ? LeftArrow2
     : LeftArrow;
 
+  const handleClick = () => {
+    if (to) {
+      navigate(to); // navigate to the route
+    }
+    if (onClick) {
+      onClick(); // call any additional handler
+    }
+  };
+
   return (
-    <div className={`flechas ${size} ${className}`}>
-      {isRight ? (
-        <>
-          <ArrowIcon className="arrow-icon" />
-          <span className="Atext-wrapper">{showText ? "Siguiente" : ""}</span>
-        </>
-      ) : (
-        <>
-          <ArrowIcon className="arrow-icon" />
-          <span className="Atext-wrapper">{showText ? "Atrás" : ""}</span>
-        </>
+    <div
+      className={`flechas ${size} ${className}`}
+      onClick={handleClick}
+      style={{ cursor: to || onClick ? "pointer" : "default" }}
+    >
+      <ArrowIcon className="arrow-icon" />
+      {showText && (
+        <span className="Atext-wrapper">{isRight ? "Siguiente" : "Atrás"}</span>
       )}
     </div>
   );
@@ -49,4 +59,6 @@ Flechas.propTypes = {
   className: PropTypes.string,
   showText: PropTypes.bool,
   variant: PropTypes.oneOf(["thin", "thick"]),
+  to: PropTypes.string,       // optional route
+  onClick: PropTypes.func,    // optional callback
 };

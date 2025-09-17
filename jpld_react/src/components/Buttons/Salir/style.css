@@ -9,7 +9,7 @@
 }
 
 .salir .text-wrapper {
-  color: #ffffff;
+  color: var(--white-color);
   font-family: var(--h1-font-family);
   font-size: var(--h1-font-size);
   font-style: var(--h1-font-style);
@@ -25,5 +25,5 @@
 }
 
 .salir:hover {
-  background-color: #004266;
+  background-color: var(--accent-color);
 }

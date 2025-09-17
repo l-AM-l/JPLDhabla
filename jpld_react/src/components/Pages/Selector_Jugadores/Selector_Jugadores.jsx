@@ -71,8 +71,8 @@ export const SelectorJugadores = () => {
 
           {/* Arrows */}
           <div className="controls-wrapper horizontal arrow-row">
-            <Flechas className="flechas-2" direction="left" />
-            <Flechas className="flechas-2" direction="right" />
+            <Flechas className="flechas-2" direction="left" to = "/"/>
+            <Flechas className="flechas-2" direction="right" to = "/level_selector"/>
           </div>
         </div>
 

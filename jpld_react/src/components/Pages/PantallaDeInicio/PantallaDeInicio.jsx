@@ -27,8 +27,8 @@ export const PantallaDeInicio = () => {
 
         <img className="IMG" alt="Img" src={IMG} />
         <img className="img" alt="Img" src={img} />
-        <Salir className="salir-instance" />
-        <Iniciar className="iniciar-instance" />
+        <Iniciar className="salir-instance" text="Salir" to="/"/>
+        <Iniciar className="iniciar-instance" text="Iniciar" to="/selector_jugadores"/>
         <img className="IMG-2" alt="Img" src={IMG1} />
 
         <InGameConfig className={showConfig ? "open" : ""} onClose={() => setShowConfig(false)} />

@@ -30,7 +30,7 @@ export const LevelSelector = () => {
       <CarruselFunc items={levelImages} />
 
       <div className="back-button">
-        <Flechas direction="left" />
+        <Flechas direction="left" to = "/selector_jugadores" />
       </div>
 
       <InGameConfig
