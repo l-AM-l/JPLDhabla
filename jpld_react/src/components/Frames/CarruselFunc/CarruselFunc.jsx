@@ -1,4 +1,3 @@
-// src/frames/CarruselFunc/CarruselFunc.jsx
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Flechas } from "../../Frames/Flechas/Flechas.jsx";
@@ -15,30 +14,63 @@ export const CarruselFunc = ({ items = [] }) => {
   const handleNext = () =>
     setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
 
-  const Item = items[currentIndex]; // NOTE: capitalized var -> React component or string path
+  const getOffset = (index) => {
+    const half = Math.floor(items.length / 2);
+    let offset = index - currentIndex;
+    if (offset < -half) offset += items.length;
+    if (offset > half) offset -= items.length;
+    return offset;
+  };
+
+  const handleClickItem = (index) => {
+    setCurrentIndex(index);
+  };
 
   return (
     <div className="carrusel-container">
       <div className="carousel-arrow left-arrow" onClick={handlePrev}>
-        <Flechas direction="left" showText={false} variant="thick" />
+        <Flechas direction="left" size="large" showText={false} variant="thick" />
       </div>
 
       <div className="carousel-frame">
-        {/* If the item is a string, render <img>. If it's a component/function, render it as <Item /> */}
-        {typeof Item === "string" ? (
-          <img
-            src={Item}
-            alt={`Level ${currentIndex + 1}`}
-            className="carousel-image"
-          />
-        ) : (
-          // Item is a React component (imported as ReactComponent)
-          <Item className="carousel-image" />
-        )}
+        {items.map((Item, index) => {
+          const offset = getOffset(index);
+          const absOffset = Math.abs(offset);
+          const isCenter = offset === 0;
+
+          return (
+            <div
+              key={index}
+              className={`carousel-item ${isCenter ? "center-hover" : ""}`}
+              onClick={() => handleClickItem(index)}
+              style={{
+                transform: `translateX(${offset * 180}px) scale(${
+                  isCenter ? 1.3 : 0.8
+                })`,
+                zIndex: 100 - absOffset,
+                filter: isCenter ? "none" : "grayscale(100%)",
+                opacity: absOffset > 2 ? 0 : 1,
+                transition:
+                  "transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease",
+                cursor: "pointer",
+              }}
+            >
+              {typeof Item === "string" ? (
+                <img
+                  src={Item}
+                  alt={`Item ${index + 1}`}
+                  className="carousel-image"
+                />
+              ) : (
+                <Item className="carousel-image" />
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <div className="carousel-arrow right-arrow" onClick={handleNext}>
-        <Flechas direction="right" showText={false} variant="thick" />
+        <Flechas direction="right" size="large" showText={false} variant="thick" />
       </div>
     </div>
   );

@@ -4,30 +4,46 @@
   justify-content: center;
   gap: 1rem;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  perspective: 1200px;
 }
 
 .carousel-frame {
+  position: relative;
   background: var(--light-color, #dff8fd);
-  border: 3px solid var(--accent-color, #DA0463);
   border-radius: 12px;
-  padding: 1rem;
-  min-width: 320px;
-  min-height: 220px;
+  padding: 2rem;
+  min-width: 50vw;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
+  transform-style: preserve-3d;
+}
+
+.carousel-item {
+  position: absolute;
+  transform-origin: center;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+}
+
+.carousel-item.center-hover:hover {
+  transform: scale(1.5) !important; /* hover effect only for center item */
 }
 
 .carousel-image {
-  width: 100%;
-  max-width: 420px;
+  width: 80%;
+  max-width: 400px;
   height: auto;
   object-fit: contain;
+  border-radius: 12px;
+  pointer-events: none; /* ensures hover/click is handled by parent div */
 }
 
-/* arrows */
 .carousel-arrow {
   display: flex;
   align-items: center;
@@ -35,4 +51,5 @@
   cursor: pointer;
   width: 64px;
   height: 64px;
+  z-index: 3;
 }

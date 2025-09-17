@@ -42,6 +42,10 @@
 }
 
 .back-button {
-  margin-top: auto; /* pushes it towards bottom */
+  position: absolute;
+  bottom: 0;
+  left: 6%;
+  bottom: 2%;
   cursor: pointer;
 }
+

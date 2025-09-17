@@ -28,7 +28,7 @@ export const LevelSelector = () => {
       <CarruselFunc items={levelImages} />
 
       <div className="back-button">
-        <Flechas direction="left" showText={false} />
+        <Flechas direction="left" />
       </div>
 
       <InGameConfig
