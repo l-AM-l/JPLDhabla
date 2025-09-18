@@ -19,7 +19,6 @@ app.route('/logIn')
     .post((req, res) =>{
         console.log("LOGGED IN!!!!!!!");
     });
-    
 
 app.listen(PORT, () => {
     console.log(`<|Berkeley listening port ${PORT}|>`); // Log server start and port information

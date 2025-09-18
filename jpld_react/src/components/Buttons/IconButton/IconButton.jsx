@@ -3,20 +3,20 @@ import "./style.css";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-export const IconButton = ({
-  className = "",
-  icon: Icon = null,  // SVG component
-  to = null,          // optional route
-  onClick = null,     // optional callback
-}) => {
+export const IconButton = ({ className = "", icon: Icon = null, to = null, onClick = null }) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    if (to) {
-      navigate(to); // navigate if "to" is provided
-    }
+  const handleClick = (e) => {
+    e.stopPropagation();
+
+    // First trigger callback
     if (onClick) {
-      onClick(); // call callback if provided
+      onClick();
+    }
+
+    // Then navigate if `to` is defined
+    if (to) {
+      navigate(to);
     }
   };
 
@@ -34,8 +34,8 @@ export const IconButton = ({
 };
 
 IconButton.propTypes = {
-  icon: PropTypes.elementType,  // expects a React component (SVG)
+  icon: PropTypes.elementType,
   className: PropTypes.string,
-  to: PropTypes.string,         // optional route
-  onClick: PropTypes.func,      // optional callback
+  to: PropTypes.string,
+  onClick: PropTypes.func,
 };
