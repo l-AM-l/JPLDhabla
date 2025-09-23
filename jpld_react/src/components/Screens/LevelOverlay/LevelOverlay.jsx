@@ -53,7 +53,7 @@ export const LevelOverlay = ({ text }) => {
           onClick={handleRepeatClick} // use handler that reads current state
           className="btn-overlay"
         />
-        <IconButton icon={Next} to="/game" className="btn-overlay" />
+        <IconButton icon={Next} className="btn-overlay" />
       </div>
     </div>
   );

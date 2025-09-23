@@ -105,6 +105,10 @@ const phrases = {
     2: BeachAnimal,
   };
 
+  const intro_audio = ["/sounds/nature.mp3", "/sounds/cheering.mp3", "/sounds/waves_crashing.mp3"];
+  const audio = new Audio(intro_audio[state.level%3]);
+  audio.play().then(console.log("Intro audio played succesfully")).catch((err) => console.error("Intro Audio playback failed:", err));
+
   const currentPhrase =
     phrases[level%3]?.[difficulty - 1]?.[subLevel - 1] || "Frase no disponible";
 
@@ -117,7 +121,6 @@ const phrases = {
     const timer = setTimeout(() => setAnimateIntro(false), 1000);
     return () => clearTimeout(timer);
   }, []);
-
 
   return (
     <div className="level-container">
