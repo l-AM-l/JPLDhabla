@@ -13,6 +13,7 @@ html, body, #root {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+  min-height: 600px; /* prevent too small on short screens */
 }
 
 /* Header text */
@@ -33,35 +34,36 @@ html, body, #root {
   justify-content: stretch;
 }
 
-/* Background images */
+/* Background images - responsive scaling */
 .selector-jugadores .background-img {
   position: absolute;
   object-fit: cover;
 }
 .selector-jugadores .background-img.left {
-  width: 580px;
-  height: 572px;
+  width: clamp(300px, 45vw, 580px);
+  height: clamp(295px, 44vw, 572px);
   bottom: 0px;
   left: 0;
 }
 .selector-jugadores .background-img.right {
-  width: 384px;
-  height: 384px;
+  width: clamp(200px, 30vw, 384px);
+  height: clamp(200px, 30vw, 384px);
   bottom: 0px;
   right: 0;
 }
 
-/* Header */
+/* Header - responsive spacing, reduced margins */
 .selector-jugadores .header {
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: clamp(10px, 2vh, 20px); /* reduced from 4vh to 2vh */
+  margin-bottom: clamp(5px, 1vh, 10px); /* reduced margins */
   text-align: center;
   color: var(--dark-color);
 }
+
 .selector-jugadores .text-wrapper {
   color: var(--dark-color);
   font-family: var(--h1-font-family);
-  font-size: var(--h1-font-size);
+  font-size: clamp(2rem, 5vw, var(--h1-font-size, 3rem)); /* increased font size */
   font-style: var(--h1-font-style);
   font-weight: var(--h1-font-weight);
   letter-spacing: 0;
@@ -83,68 +85,81 @@ html, body, #root {
   align-items: center;
 }
 
-/* Arrows */
-.selector-jugadores .flechas {
+/* Arrows - increased sizing */
+.selector-jugadores .flechas,
+.selector-jugadores .flechas-2 {
   cursor: pointer;
-  width: 80px;
-  height: 120px;
+  width: clamp(80px, 10vw, 100px); /* increased from 8vw to 10vw */
+  height: clamp(120px, 15vw, 150px); /* increased from 12vw to 15vw */
   flex-shrink: 0;
 }
 
-/* Person instance */
+/* Person instance - increased sizing */
 .selector-jugadores .person-instance {
-  width: 900px;                  /* fixed width */
-  height: 200px;                 /* fixed height */
-  max-width: none;               /* ignore vw scaling */
+  width: clamp(500px, 70vw, 1100px); /* increased from 60vw to 70vw */
+  height: clamp(150px, 18vw, 250px); /* increased from 15vw to 18vw */
+  max-width: none;
   max-height: none;
-  transform-origin: center center; /* ensures growth from center */
+  transform-origin: center center;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;              /* prevents spilling outside */
-  flex-shrink: 0;                /* prevents shrinking */
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
+/* Gear - responsive positioning and sizing */
+.selector-jugadores .gear-instance {
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+  width: clamp(60px, 10vw, 133px);
+  height: clamp(60px, 10vw, 133px);
+  cursor: pointer;
+  z-index: 10;
+}
 
-/* Gear */
+/* Remove old gear styles */
 .selector-jugadores .gear {
   position: relative;
   z-index: 10;
-  top: 20%;
+  top: 10%;
   right: -46%;
   width: 133px;
   height: 133px;
   cursor: pointer;
 }
 
-/* Vector */
+/* Vector - responsive sizing */
 .selector-jugadores .vector-4 {
-  width: 107px;
-  height: 110px;
+  width: clamp(70px, 8vw, 107px);
+  height: clamp(75px, 8vw, 110px);
 }
 
-/* Vertical stack */
+/* Vertical stack - responsive spacing, pushed higher */
 .controls-wrapper.vertical {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10%;
+  justify-content: flex-start; /* changed from center to flex-start */
+  gap: clamp(3vh, 6vh, 10vh); /* reduced gap sizes */
   width: 100%;
   position: relative;
+  padding: 1vh 2vw; /* reduced top padding */
+  margin-top: -2vh; /* push everything up */
 }
 
-/* Horizontal row */
+/* Horizontal row - responsive spacing */
 .controls-wrapper.horizontal {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 95%;
-  gap: 0;
+  gap: clamp(2vw, 4vw, 6vw);
 }
 
-/* Top row for gear */
+/* Top row for gear - no longer needed since gear is absolutely positioned */
 .top-row {
   width: 100%;
   display: flex;
@@ -152,15 +167,85 @@ html, body, #root {
   padding: 0 0px;
 }
 
-/* Main row for PlusMinus + Person */
+/* Main row for PlusMinus + Person - responsive spacing */
 .main-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 0; /* remove fixed margin */
 }
 
-/* Plus/Minus buttons */
+/* Plus/Minus buttons - increased sizing */
 .minus-btn, .plus-btn {
   cursor: pointer;
+  width: clamp(70px, 10vw, 100px); /* increased from 8vw to 10vw */
+  height: clamp(70px, 10vw, 100px); /* increased from 8vw to 10vw */
+  transform: scale(3);
+}
+
+/* Arrow row spacing */
+.arrow-row {
+  justify-content: space-around;
+  width: 80%;
+}
+
+/* Mobile responsive breakpoints */
+@media (max-width: 768px) {
+  .selector-jugadores .person-instance {
+    width: clamp(300px, 70vw, 500px);
+    height: clamp(100px, 18vw, 150px);
+  }
+  
+  .controls-wrapper.vertical {
+    gap: clamp(2vh, 4vh, 6vh); /* reduced gap for mobile */
+    margin-top: -3vh; /* push up more on mobile */
+  }
+  
+  .controls-wrapper.horizontal {
+    gap: clamp(1vw, 3vw, 4vw);
+  }
+  
+  .selector-jugadores .background-img.left {
+    width: clamp(250px, 50vw, 400px);
+    height: clamp(245px, 49vw, 392px);
+  }
+  
+  .selector-jugadores .background-img.right {
+    width: clamp(150px, 35vw, 250px);
+    height: clamp(150px, 35vw, 250px);
+  }
+}
+
+@media (max-width: 480px) {
+  .selector-jugadores .person-instance {
+    width: clamp(250px, 80vw, 350px);
+    height: clamp(80px, 20vw, 120px);
+  }
+  
+  .controls-wrapper.vertical {
+    gap: clamp(1.5vh, 3vh, 4vh); /* further reduced gap for small mobile */
+    padding: 0.5vh 1vw;
+    margin-top: -4vh; /* push up even more on small screens */
+  }
+  
+  .arrow-row {
+    width: 90%;
+  }
+  
+  .minus-btn, .plus-btn {
+    width: clamp(40px, 10vw, 60px);
+    height: clamp(40px, 10vw, 60px);
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1200px) {
+  .selector-jugadores .person-instance {
+    max-width: 1000px; /* increased from 800px */
+    max-height: 220px; /* increased from 180px */
+  }
+  
+  .controls-wrapper.horizontal {
+    max-width: 1200px; /* increased from 1000px */
+  }
 }

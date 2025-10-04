@@ -30,6 +30,7 @@
   font-weight: var(--h1-font-weight);
   line-height: var(--h1-line-height);
   margin: 0;
+  margin-bottom: 10%;
 }
 
 /* Gear fixed in top-right, like other screens */

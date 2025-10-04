@@ -46,6 +46,11 @@ export const SelectorJugadores = () => {
           {/* Top row: gear */}
             <Gear className="gear-instance" onClick={handleGearClick} />
 
+            {/* Header */}
+          <div className="header">
+            <div className="text-wrapper">Jugadores en la sala</div>
+          </div>
+
           {/* PlusMinus + Person row */}
           <div className="controls-wrapper horizontal main-row">
             <PlusMinus
@@ -61,11 +66,6 @@ export const SelectorJugadores = () => {
               className="plus-btn"
               onClick={handleIncrease}
             />
-          </div>
-
-          {/* Header */}
-          <div className="header">
-            <div className="text-wrapper">Jugadores en la sala</div>
           </div>
 
           {/* Arrows */}

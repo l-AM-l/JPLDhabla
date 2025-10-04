@@ -1,21 +1,21 @@
-
 /* Overlay box */
 .overlay-container {
   background: var(--white-color);
   border-radius: 20px;
-  padding: 3rem 3.5rem;
+  padding: clamp(1rem, 4vw, 3rem) clamp(1.5rem, 5vw, 3.5rem);
   box-shadow: 0px 6px 20px var(--dark-color);
   text-align: center;
   max-width: 90vw;
-  min-height: 300px;
+  min-height: clamp(200px, 40vh, 300px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+/* Text adapts with screen */
 .overlay-text {
   font-family: var(--font-h1);
-  font-size: calc(var(--h2-size) * 2.2); /* larger reading text */
+  font-size: clamp(1.2rem, 5vw, calc(var(--h2-size) * 2.2));
   color: var(--dark-color);
   font-weight: var(--h2-weight);
   line-height: 1.6;
@@ -25,11 +25,30 @@
 .overlay-buttons {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  flex-wrap: wrap; /* allow buttons to move on small screens */
+  gap: clamp(0.8rem, 2vw, 1.5rem);
   margin-top: 1.5rem;
 }
 
 .btn-overlay {
   flex: 1;
-  max-width: 180px;
+  max-width: clamp(100px, 25vw, 180px);
+  min-width: 80px;
+}
+
+/* Extra tweaks for very small screens */
+@media (max-width: 480px) {
+  .overlay-container {
+    padding: 1rem;
+    border-radius: 15px;
+  }
+
+  .overlay-text {
+    font-size: clamp(1rem, 6vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .btn-overlay {
+    flex: 0 1 100px;
+  }
 }

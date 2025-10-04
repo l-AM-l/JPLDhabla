@@ -8,42 +8,58 @@ import { LevelInfo } from "../../Screens/LevelInfo/LevelInfo.jsx";
 
 import "./style.css";
 
-// SVG imports
+// SVG imports (ejemplo, agrega todos los que falten)
 import { ReactComponent as Stadium } from "../../../assets/stadium.svg";
 import { ReactComponent as Beach } from "../../../assets/beach.svg";
 import { ReactComponent as Forest } from "../../../assets/forest.svg";
+import { ReactComponent as House } from "../../../assets/one.svg";
+import { ReactComponent as Hygiene } from "../../../assets/two.svg";
+import { ReactComponent as Transport } from "../../../assets/three.svg";
+import { ReactComponent as Playground } from "../../../assets/microphone.svg";
+
 import { ReactComponent as OrangeIcon } from "../../../assets/cloud.svg";
 
 export const LevelSelector = () => {
   const [showConfig, setShowConfig] = useState(false);
   const [showLevelInfo, setShowLevelInfo] = useState(false);
-  const [currentLevel, setCurrentLevel] = useState(1);
+  const [currentLevel, setCurrentLevel] = useState(null);
 
   const handleGearClick = () => setShowConfig((p) => !p);
 
-  const levelImages = [Stadium, Beach, Forest];
+  // Todas las imágenes de niveles (0 a 6)
+  const levelImages = [
+    Forest,     // 0 - Selva
+    Stadium,    // 1 - Escuela / Estadio
+    Beach,      // 2 - Playa
+    House,      // 3 - Casa
+    Hygiene,    // 4 - Cuerpo / Higiene
+    Transport,  // 5 - Transporte
+    Playground  // 6 - Juego / Parque
+  ];
 
   return (
     <div className="level-selector">
       <div className="header">
-        <h1 className="title">Seleccione un Escenario</h1>
+        <h1 className="title">SE-LEC-CIO-NE UN ES-CE-NA-RIO</h1>
         <Gear className="gear-instance" onClick={handleGearClick} />
       </div>
 
       <CarruselFunc
         items={levelImages}
-        onSelectLevel={(level) => {
-          setCurrentLevel(level);
-          setShowLevelInfo(true); // show LevelInfo when clicked
+        onSelectLevel={(levelIndex) => {
+          setCurrentLevel(levelIndex);
+          setShowLevelInfo(true); // mostrar ventana de LevelInfo
         }}
       />
 
-      {/* Show LevelInfo only when triggered */}
-      <LevelInfo
-        level={currentLevel}
-        visible={showLevelInfo}
-        onCancel={() => setShowLevelInfo(false)} // hide LevelInfo on Cancel
-      />
+      {/* Mostrar LevelInfo solo si fue activado */}
+      {showLevelInfo && (
+        <LevelInfo
+          level={currentLevel}
+          visible={showLevelInfo}
+          onCancel={() => setShowLevelInfo(false)} // oculta al cancelar
+        />
+      )}
 
       <div className="back-button">
         <Flechas direction="left" to="/selector_jugadores" />
@@ -54,6 +70,7 @@ export const LevelSelector = () => {
         onClose={() => setShowConfig(false)}
       />
 
+      {/* Decoración */}
       <OrangeIcon className="orange-icon2" />
       <OrangeIcon className="orange-icon" />
     </div>
