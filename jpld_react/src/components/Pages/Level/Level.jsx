@@ -1,3 +1,4 @@
+// src/pages/Level/Level.jsx
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import { LevelOverlay } from "../../Screens/LevelOverlay/LevelOverlay.jsx";
@@ -6,129 +7,176 @@ import { Gear } from "../../Buttons/Gear/Gear.jsx";
 import { InGameConfig } from "../../Screens/InGameConfig/InGameConfig.jsx";
 import { Flechas } from "../../Frames/Flechas/Flechas.jsx";
 
-// Import SVGs as React components (puedes ir agregando más si tienes para otros fondos/animales)
+// ==== BACKGROUNDS ====
 import { ReactComponent as JungleBackground } from "../../../assets/jungle_back.svg";
 import { ReactComponent as StadiumBackground } from "../../../assets/stadium_back.svg";
 import { ReactComponent as BeachBackground } from "../../../assets/beach_back.svg";
+import { ReactComponent as HouseBackground } from "../../../assets/house_back.svg";
+import { ReactComponent as HygieneBackground } from "../../../assets/hygiene_back.svg";
+import { ReactComponent as TransportBackground } from "../../../assets/transport_back.svg";
+import { ReactComponent as ParkBackground } from "../../../assets/park_back.svg";
 
-import { ReactComponent as JungleAnimal } from "../../../assets/lion.svg";
-import { ReactComponent as StadiumAnimal } from "../../../assets/soccer.svg";
-import { ReactComponent as BeachAnimal } from "../../../assets/dolphin.svg";
+// ==== ANIMALS / ITEMS ====
+import { ReactComponent as Lion } from "../../../assets/lion.svg";
+import { ReactComponent as Monkey } from "../../../assets/monkey.svg";
+import { ReactComponent as Elephant } from "../../../assets/elephant.svg";
 
+import { ReactComponent as Pencil } from "../../../assets/pencil.svg";
+import { ReactComponent as Backpack } from "../../../assets/backpack.svg";
+import { ReactComponent as Ball } from "../../../assets/ball.svg";
+
+import { ReactComponent as Apple } from "../../../assets/apple.svg";
+import { ReactComponent as Bread } from "../../../assets/bread.svg";
+import { ReactComponent as Fish } from "../../../assets/fish.svg";
+
+import { ReactComponent as Mom } from "../../../assets/mom.svg";
+import { ReactComponent as Bed } from "../../../assets/bed.svg";
+import { ReactComponent as Dad } from "../../../assets/dad.svg";
+
+import { ReactComponent as Hands } from "../../../assets/hands.svg";
+import { ReactComponent as Toothbrush } from "../../../assets/toothbrush.svg";
+import { ReactComponent as Feet } from "../../../assets/feet.svg";
+
+import { ReactComponent as Airplane } from "../../../assets/airplane.svg";
+import { ReactComponent as Bike } from "../../../assets/bike.svg";
+import { ReactComponent as Boat } from "../../../assets/boat.svg";
+
+import { ReactComponent as BallPlay } from "../../../assets/ball_play.svg";
+import { ReactComponent as Swing } from "../../../assets/swing.svg";
+import { ReactComponent as Slide } from "../../../assets/slide.svg";
+
+// ==== COMPONENT ====
 export const Level = () => {
   const { state } = useAppContext();
   const { level = 0, difficulty = 1, subLevel = 1 } = state;
 
   const [showConfig, setShowConfig] = useState(false);
   const handleGearClick = () => setShowConfig((p) => !p);
-
   const [animateIntro, setAnimateIntro] = useState(true);
 
-  // Phrases mapping (TODOS LOS NIVELES DEL PDF)
+  // ======================
+  // 🔤 PHRASES (from your doc)
+  // ======================
   const phrases = {
-    0: [ // Jungle
+    0: [
       ["MO-NO", "TI-GRE", "E-LE-FAN-TE"],
       ["EL MO-NO SAL-TA.", "EL TI-GRE RU-GE.", "EL E-LE-FAN-TE CA-MI-NA."],
       [
         "EL MO-NO SAL-TA DE RA-MA EN RA-MA MIENTRAS GRI-TA FUER-TE.",
         "EL TI-GRE RU-GE EN ME-DIO DE LA SEL-VA CUAN-DO VE UNA PRE-SA.",
-        "EL E-LE-FAN-TE CA-MI-NA LEN-TA-MEN-TE POR EL RÍ-O CON SU TROM-PA AL-ZA-DA."
-      ]
+        "EL E-LE-FAN-TE CA-MI-NA LEN-TA-MEN-TE POR EL RÍ-O CON SU TROM-PA AL-ZA-DA.",
+      ],
     ],
-    1: [ // Escuela
+    1: [
       ["LÁ-PIZ", "MO-CHI-LA", "PA-PE-LO-TA"],
       ["TEN-GO UN LÁ-PIZ A-MA-RI-LLO.", "LA MO-CHI-LA ES GRAN-DE.", "LA PE-LO-TA RU-E-DA."],
       [
         "EL NI-ÑO U-SA UN LÁ-PIZ A-MA-RI-LLO PA-RA ES-CRI-BIR SU NOM-BRE.",
         "MI MO-CHI-LA ES-TÁ LLE-NA DE LI-BROS Y CO-LO-RES.",
-        "LA PE-LO-TA RU-E-DA RÁ-PI-DO POR EL CAM-PO Y CA-E EN LA POR-TE-RÍ-A."
-      ]
+        "LA PE-LO-TA RU-E-DA RÁ-PI-DO POR EL CAM-PO Y CA-E EN LA POR-TE-RÍ-A.",
+      ],
     ],
-    2: [ // Beach (Alimentos adaptados + playa)
+    2: [
       ["MA-NZA-NA", "PAN", "PEZ"],
       ["QUIE-RO UNA MA-NZA-NA.", "EL PAN ES-TÁ CA-LIEN-TE.", "EL PEZ NA-DA."],
       [
         "LA NI-ÑA CO-ME UNA MA-NZA-NA RO-JA POR-QUE TIE-NE HAM-BRE.",
         "EL PAN RE-CIÉN HOR-NEA-DO HUE-LE DE-LI-CIO-SO Y ES-TÁ SUA-VE.",
-        "EL PEZ NA-DA RÁ-PI-DO EN EL MAR MIENTRAS ES-QUI-VA LAS O-LAS."
-      ]
+        "EL PEZ NA-DA RÁ-PI-DO EN EL MAR MIENTRAS ES-QUI-VA LAS O-LAS.",
+      ],
     ],
-    3: [ // Casa y familia
+    3: [
       ["MA-MÁ", "CA-MA", "PA-PÁ"],
       ["MA-MÁ CO-CI-NA.", "LA CA-MA ES-TÁ TEN-DI-DA.", "MI PA-PÁ DUER-ME."],
       [
         "MI MA-MÁ CO-CI-NA AR-ROZ MIENTRAS YO LA A-YU-DO.",
         "LA CA-MA TIE-NE UNA CO-BI-JA RO-JA Y MU-CHOS CO-JI-NES.",
-        "MI PA-PÁ DUER-ME TRAN-QUI-LO EN SU CUAR-TO."
-      ]
+        "MI PA-PÁ DUER-ME TRAN-QUI-LO EN SU CUAR-TO.",
+      ],
     ],
-    4: [ // Cuerpo e higiene
+    4: [
       ["MA-NOS", "CE-PI-LLO", "PI-ES"],
       ["LÁ-VA-TE LAS MA-NOS.", "U-SO EL CE-PI-LLO DE DIEN-TES.", "MIS PIES COR-REN."],
       [
         "DE-BE-MOS LA-VAR-NOS LAS MA-NOS AN-TES DE CO-MER PA-RA NO EN-FER-MAR-NOS.",
         "CA-DA MA-ÑA-NA U-SO MI CE-PI-LLO DE DIEN-TES CON PAS-TA DE MEN-TA.",
-        "MIS PIES CO-RREN RÁ-PI-DO CUAN-DO JU-E-GO EN EL PAR-QUE."
-      ]
+        "MIS PIES CO-RREN RÁ-PI-DO CUAN-DO JU-E-GO EN EL PAR-QUE.",
+      ],
     ],
-    5: [ // Transporte
+    5: [
       ["A-VIÓN", "BI-CI-CLE-TA", "BAR-CO"],
       ["EL A-VIÓN VUE-LA.", "LA BI-CI-CLE-TA ES A-ZUL.", "EL BAR-CO NA-VE-GA."],
       [
         "EL A-VIÓN DES-PE-GA DES-DE LA PIS-TA Y SU-BE EN-TRE LAS NU-BES.",
         "EL NI-ÑO MON-TA SU BI-CI-CLE-TA EN EL PAR-QUE CA-DA TAR-DE.",
-        "EL BAR-CO NA-VE-GA LEN-TO POR EL MAR HAS-TA LLE-GAR A PUER-TO."
-      ]
+        "EL BAR-CO NA-VE-GA LEN-TO POR EL MAR HAS-TA LLE-GAR A PUER-TO.",
+      ],
     ],
-    6: [ // Juego y parque
+    6: [
       ["PE-LO-TA", "CO-LUM-PIO", "RE-SBA-LA-DI-LLA"],
       ["LAN-ZA LA PE-LO-TA.", "ME SU-BO AL CO-LUM-PIO.", "BA-JA POR LA RE-SBA-LA-DI-LLA."],
       [
         "JU-GA-MOS CON LA PE-LO-TA Y CO-RRE-MOS TO-DOS JUNTOS.",
         "EL NI-ÑO SU-BE AL CO-LUM-PIO Y SE BA-LAN-CEA MUY A-LTO.",
-        "LA NI-ÑA BA-JA POR LA RE-SBA-LA-DI-LLA Y RÍ-E CON A-LE-GRÍ-A."
-      ]
-    ]
+        "LA NI-ÑA BA-JA POR LA RE-SBA-LA-DI-LLA Y RÍ-E CON A-LE-GRÍ-A.",
+      ],
+    ],
   };
 
-  // Backgrounds mapping (ahora solo 3, puedes agregar SVGs para los demás)
+  // ======================
+  // 🐾 ANIMAL / ITEM SETS (3 per level)
+  // ======================
+  const animalSets = {
+    0: [Monkey, Lion, Elephant],
+    1: [Pencil, Backpack, Ball],
+    2: [Apple, Bread, Fish],
+    3: [Mom, Bed, Dad],
+    4: [Hands, Toothbrush, Feet],
+    5: [Airplane, Bike, Boat],
+    6: [BallPlay, Swing, Slide],
+  };
+
+  // ======================
+  // 🔊 AUDIO SETS (3 per level)
+  // ======================
+  const audioSets = {
+    0: ["/sounds/monkey.mp3", "/sounds/lion_roar.mp3", "/sounds/elephant.mp3"],
+    1: ["/sounds/pencil.mp3", "/sounds/backpack.mp3", "/sounds/ball.mp3"],
+    2: ["/sounds/apple.mp3", "/sounds/bread.mp3", "/sounds/fish.mp3"],
+    3: ["/sounds/mom.mp3", "/sounds/bed.mp3", "/sounds/dad.mp3"],
+    4: ["/sounds/hands.mp3", "/sounds/toothbrush.mp3", "/sounds/feet.mp3"],
+    5: ["/sounds/airplane.mp3", "/sounds/bike.mp3", "/sounds/boat.mp3"],
+    6: ["/sounds/ball_play.mp3", "/sounds/swing.mp3", "/sounds/slide.mp3"],
+  };
+
+  // ======================
+  // 🌿 BACKGROUNDS
+  // ======================
   const backgrounds = {
     0: JungleBackground,
     1: StadiumBackground,
     2: BeachBackground,
-    3: JungleBackground,  // placeholder
-    4: StadiumBackground, // placeholder
-    5: BeachBackground,   // placeholder
-    6: JungleBackground   // placeholder
+    3: HouseBackground,
+    4: HygieneBackground,
+    5: TransportBackground,
+    6: ParkBackground,
   };
-
-  // Animals mapping (igual: placeholders para los que falten)
-  const animals = {
-    0: JungleAnimal,
-    1: StadiumAnimal,
-    2: BeachAnimal,
-    3: JungleAnimal,
-    4: StadiumAnimal,
-    5: BeachAnimal,
-    6: JungleAnimal
-  };
-
-  // Audios intro
-  const intro_audio = [
-    "/sounds/nature.mp3",
-    "/sounds/cheering.mp3",
-    "/sounds/waves_crashing.mp3"
-  ];
-  const audio = new Audio(intro_audio[state.level % 3]);
-  audio.play()
-    .then(() => console.log("Intro audio played successfully"))
-    .catch((err) => console.error("Intro Audio playback failed:", err));
 
   const currentPhrase =
     phrases[level]?.[difficulty - 1]?.[subLevel - 1] || "FRA-SE NO DIS-PO-NI-BLE";
 
   const BackgroundSVG = backgrounds[level] || JungleBackground;
-  const AnimalSVG = animals[level] || JungleAnimal;
+  const AnimalSVG = animalSets[level]?.[subLevel - 1] || Lion;
+
+  useEffect(() => {
+    const soundPath = audioSets[level]?.[subLevel - 1];
+    if (soundPath) {
+      const audio = new Audio(soundPath);
+      audio.play().catch((err) =>
+        console.error("Audio playback failed:", err)
+      );
+    }
+  }, [level, subLevel]);
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimateIntro(false), 1000);
