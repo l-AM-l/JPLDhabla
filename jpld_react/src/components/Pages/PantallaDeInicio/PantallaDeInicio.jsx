@@ -33,11 +33,9 @@ export const PantallaDeInicio = () => {
           <Iniciar className="iniciar-instance" text="Iniciar" to="/selector_jugadores"/>
           <Iniciar className="salir-instance" text="Salir" to="/"/>
         </div>
-
-
-        <InGameConfig className={showConfig ? "open" : ""} onClose={() => setShowConfig(false)} />
   
       </div>
+      <InGameConfig className={showConfig ? "open" : ""} onClose={() => setShowConfig(false)} />
     </div>
   );
 };

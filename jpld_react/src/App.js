@@ -1,34 +1,39 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import  DirectoryProvider from './context/DirectoryProvider.jsx';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import DirectoryProvider, { useAppContext } from "./context/DirectoryProvider.jsx";
 
 // Pages
-import Home from './components/Pages/Home.jsx';
-import {PantallaDeInicio} from './components/Pages/PantallaDeInicio/PantallaDeInicio.jsx';
-import {SelectorJugadores} from './components/Pages/Selector_Jugadores/Selector_Jugadores.jsx';
-import {LevelSelector} from './components/Pages/LevelSelector/LevelSelector.jsx';
-import {Level} from './components/Pages/Level/Level.jsx';
-/*
-import Configuration from './components/Pages/Configuration.jsx';
-import InGame from './components/Pages/InGame.jsx';
-import LevelOverlay from './components/Pages/LevelOverlay.jsx';
-import LevelSelector from './components/Pages/LevelSelector.jsx';
-import PlayerSelector from './components/Pages/PlayerSelector.jsx';
-*/
+import { PantallaDeInicio } from "./components/Pages/PantallaDeInicio/PantallaDeInicio.jsx";
+import { SelectorJugadores } from "./components/Pages/Selector_Jugadores/Selector_Jugadores.jsx";
+import { LevelSelector } from "./components/Pages/LevelSelector/LevelSelector.jsx";
+import { Level } from "./components/Pages/Level/Level.jsx";
 
-function App() {
+function AppContent() {
+  const { state } = useAppContext();
+
+  useEffect(() => {
+    const raw = state?.settings?.letterSize ?? 0.5;
+    const scale = 0.75 + raw * 0.5; // map 0–1 → 0.75–1.25
+    document.documentElement.style.setProperty("--font-scale", scale.toFixed(2));
+    console.log("Font scale applied:", scale);
+  }, [state?.settings?.letterSize]);
+
   return (
-    <DirectoryProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<PantallaDeInicio />} />
-          <Route path="/selector_jugadores" element={<SelectorJugadores />} />
-          <Route path="/level_selector" element={<LevelSelector />} />
-          <Route path="/level" element={<Level />} />
-        </Routes>
-      </Router>
-    </DirectoryProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<PantallaDeInicio />} />
+        <Route path="/selector_jugadores" element={<SelectorJugadores />} />
+        <Route path="/level_selector" element={<LevelSelector />} />
+        <Route path="/level" element={<Level />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <DirectoryProvider>
+      <AppContent />
+    </DirectoryProvider>
+  );
+}

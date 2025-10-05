@@ -41,14 +41,15 @@ code {
 /* Typography variables       */
 /* ========================= */
 :root {
+  --font-scale: 10;
   --font-h1: 'Segoe UI', Arial, sans-serif; /* big titles */
   --font-h2: 'Segoe UI', Arial, sans-serif; 
   --font-body: 'Verdana', Geneva, sans-serif;  /* body text */
 
-  --h1-size: 3.5rem;
-  --h2-size: 1.8rem;
-  --h3-size: 1.5rem;
-  --body-size: 1.2rem;
+  --h1-size: calc(3.5rem * var(--font-scale));
+  --h2-size: calc(1.8rem * var(--font-scale));
+  --h3-size: calc(1.5rem * var(--font-scale));
+  --body-size: calc(1.2rem * var(--font-scale));
 
   --h1-weight: 700;
   --h2-weight: 600;
