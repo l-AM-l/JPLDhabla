@@ -12,17 +12,17 @@ import "./style.css";
 import { ReactComponent as Stadium } from "../../../assets/stadium.svg";
 import { ReactComponent as Beach } from "../../../assets/beach.svg";
 import { ReactComponent as Forest } from "../../../assets/forest.svg";
-import { ReactComponent as House } from "../../../assets/one.svg";
-import { ReactComponent as Hygiene } from "../../../assets/two.svg";
-import { ReactComponent as Transport } from "../../../assets/three.svg";
-import { ReactComponent as Playground } from "../../../assets/microphone.svg";
+import { ReactComponent as House } from "../../../assets/house.svg";
+import { ReactComponent as Hygiene } from "../../../assets/hygiene.svg";
+import { ReactComponent as Transport } from "../../../assets/transport.svg";
+import { ReactComponent as Playground } from "../../../assets/park.svg";
 
 import { ReactComponent as OrangeIcon } from "../../../assets/cloud.svg";
 
 export const LevelSelector = () => {
   const [showConfig, setShowConfig] = useState(false);
   const [showLevelInfo, setShowLevelInfo] = useState(false);
-  const [currentLevel, setCurrentLevel] = useState(null);
+  const [currentLevel, setCurrentLevel] = useState(0);
 
   const handleGearClick = () => setShowConfig((p) => !p);
 

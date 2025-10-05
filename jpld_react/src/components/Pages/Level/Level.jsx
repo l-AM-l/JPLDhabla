@@ -20,50 +20,41 @@ import { ReactComponent as ParkBackground } from "../../../assets/park_back.svg"
 import { ReactComponent as Lion } from "../../../assets/lion.svg";
 import { ReactComponent as Monkey } from "../../../assets/monkey.svg";
 import { ReactComponent as Elephant } from "../../../assets/elephant.svg";
-
 import { ReactComponent as Pencil } from "../../../assets/pencil.svg";
 import { ReactComponent as Backpack } from "../../../assets/backpack.svg";
 import { ReactComponent as Ball } from "../../../assets/ball.svg";
-
 import { ReactComponent as Apple } from "../../../assets/apple.svg";
 import { ReactComponent as Bread } from "../../../assets/bread.svg";
 import { ReactComponent as Fish } from "../../../assets/fish.svg";
-
 import { ReactComponent as Mom } from "../../../assets/mom.svg";
 import { ReactComponent as Bed } from "../../../assets/bed.svg";
 import { ReactComponent as Dad } from "../../../assets/dad.svg";
-
 import { ReactComponent as Hands } from "../../../assets/hands.svg";
 import { ReactComponent as Toothbrush } from "../../../assets/toothbrush.svg";
 import { ReactComponent as Feet } from "../../../assets/feet.svg";
-
 import { ReactComponent as Airplane } from "../../../assets/airplane.svg";
 import { ReactComponent as Bike } from "../../../assets/bike.svg";
 import { ReactComponent as Boat } from "../../../assets/boat.svg";
-
 import { ReactComponent as BallPlay } from "../../../assets/ball_play.svg";
 import { ReactComponent as Swing } from "../../../assets/swing.svg";
 import { ReactComponent as Slide } from "../../../assets/slide.svg";
 
-// ==== COMPONENT ====
 export const Level = () => {
   const { state } = useAppContext();
-  const { level = 0, difficulty = 1, subLevel = 1 } = state;
+  const { level = 0, difficulty = 1, scene = 0 } = state; // scene is 0-based
 
   const [showConfig, setShowConfig] = useState(false);
   const handleGearClick = () => setShowConfig((p) => !p);
   const [animateIntro, setAnimateIntro] = useState(true);
 
-  // ======================
-  // 🔤 PHRASES (from your doc)
-  // ======================
+  // 🔤 PHRASES: [words, short sentences, long sentences] per level
   const phrases = {
     0: [
-      ["MO-NO", "TI-GRE", "E-LE-FAN-TE"],
-      ["EL MO-NO SAL-TA.", "EL TI-GRE RU-GE.", "EL E-LE-FAN-TE CA-MI-NA."],
+      ["MO-NO", "LE-ÓN", "E-LE-FAN-TE"],
+      ["EL MO-NO SAL-TA.", "EL LE-ÓN RU-GE.", "EL E-LE-FAN-TE CA-MI-NA."],
       [
         "EL MO-NO SAL-TA DE RA-MA EN RA-MA MIENTRAS GRI-TA FUER-TE.",
-        "EL TI-GRE RU-GE EN ME-DIO DE LA SEL-VA CUAN-DO VE UNA PRE-SA.",
+        "EL LE-ÓN RU-GE EN ME-DIO DE LA SEL-VA CUAN-DO VE UNA PRE-SA.",
         "EL E-LE-FAN-TE CA-MI-NA LEN-TA-MEN-TE POR EL RÍ-O CON SU TROM-PA AL-ZA-DA.",
       ],
     ],
@@ -123,9 +114,6 @@ export const Level = () => {
     ],
   };
 
-  // ======================
-  // 🐾 ANIMAL / ITEM SETS (3 per level)
-  // ======================
   const animalSets = {
     0: [Monkey, Lion, Elephant],
     1: [Pencil, Backpack, Ball],
@@ -136,9 +124,6 @@ export const Level = () => {
     6: [BallPlay, Swing, Slide],
   };
 
-  // ======================
-  // 🔊 AUDIO SETS (3 per level)
-  // ======================
   const audioSets = {
     0: ["/sounds/monkey.mp3", "/sounds/lion_roar.mp3", "/sounds/elephant.mp3"],
     1: ["/sounds/pencil.mp3", "/sounds/backpack.mp3", "/sounds/ball.mp3"],
@@ -149,9 +134,6 @@ export const Level = () => {
     6: ["/sounds/ball_play.mp3", "/sounds/swing.mp3", "/sounds/slide.mp3"],
   };
 
-  // ======================
-  // 🌿 BACKGROUNDS
-  // ======================
   const backgrounds = {
     0: JungleBackground,
     1: StadiumBackground,
@@ -162,21 +144,22 @@ export const Level = () => {
     6: ParkBackground,
   };
 
+  // Use scene (0,1,2) directly for indexing
   const currentPhrase =
-    phrases[level]?.[difficulty - 1]?.[subLevel - 1] || "FRA-SE NO DIS-PO-NI-BLE";
+    phrases[level]?.[difficulty - 1]?.[scene] || "FRA-SE NO DIS-PO-NI-BLE";
 
   const BackgroundSVG = backgrounds[level] || JungleBackground;
-  const AnimalSVG = animalSets[level]?.[subLevel - 1] || Lion;
+  const AnimalSVG = animalSets[level]?.[scene] || Lion;
 
   useEffect(() => {
-    const soundPath = audioSets[level]?.[subLevel - 1];
+    const soundPath = audioSets[level]?.[scene];
     if (soundPath) {
       const audio = new Audio(soundPath);
       audio.play().catch((err) =>
         console.error("Audio playback failed:", err)
       );
     }
-  }, [level, subLevel]);
+  }, [level, scene]);
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimateIntro(false), 1000);

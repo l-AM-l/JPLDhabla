@@ -1,3 +1,4 @@
+// src/Screens/LevelOverlay/LevelOverlay.jsx
 import React, { useRef, useEffect } from "react";
 import "./style.css";
 import { IconButton } from "../../Buttons/IconButton/IconButton.jsx";
@@ -5,7 +6,7 @@ import { ReactComponent as Microphone } from "../../../assets/microphone.svg";
 import { ReactComponent as Next } from "../../../assets/next.svg";
 import { ReactComponent as Repeat } from "../../../assets/repeat.svg";
 
-import { useAppContext } from "../../../context/DirectoryProvider.jsx";
+import { useAppContext, setScene } from "../../../context/DirectoryProvider.jsx";
 
 // Audio files from public folder
 const audioSources = [
@@ -16,7 +17,7 @@ const audioSources = [
 
 export const LevelOverlay = ({ text }) => {
   const preloadedAudiosRef = useRef([]);
-  const { state } = useAppContext();
+  const { state, dispatch } = useAppContext();
 
   // Preload audio files once
   useEffect(() => {
@@ -43,6 +44,18 @@ export const LevelOverlay = ({ text }) => {
       .catch((err) => console.error("Audio playback failed:", err));
   };
 
+  // Move to next sublevel
+  const handleNextClick = async () => {
+    const nextScene = state.scene < 2? state.scene+1 : 0;
+
+    try {
+      await setScene(dispatch, nextScene);
+      console.log(`Sublevel changed to: ${state.scene}`);
+    } catch (error) {
+      console.error("Failed to change sublevel:", error);
+    }
+  };
+
   return (
     <div className="overlay-container">
       <p className="overlay-text">{text}</p>
@@ -50,10 +63,14 @@ export const LevelOverlay = ({ text }) => {
         <IconButton icon={Microphone} to="/game" className="btn-overlay" />
         <IconButton
           icon={Repeat}
-          onClick={handleRepeatClick} // use handler that reads current state
+          onClick={handleRepeatClick}
           className="btn-overlay"
         />
-        <IconButton icon={Next} className="btn-overlay" />
+        <IconButton
+          icon={Next}
+          onClick={handleNextClick}
+          className="btn-overlay"
+        />
       </div>
     </div>
   );
