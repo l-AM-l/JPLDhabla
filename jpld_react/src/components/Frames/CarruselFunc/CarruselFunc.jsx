@@ -6,8 +6,10 @@ import "./style.css";
 
 import { useAppContext, setLevel } from "../../../context/DirectoryProvider";
 
-export const CarruselFunc = ({ items = [], onSelectLevel }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export const CarruselFunc = ({ items = [], onSelectLevel}) => {
+  const {state} = useAppContext();
+  const {level=0} = state;
+  const [currentIndex, setCurrentIndex] = useState(level);
   const { dispatch } = useAppContext();
 
   if (!items || items.length === 0) return null;
@@ -31,9 +33,9 @@ export const CarruselFunc = ({ items = [], onSelectLevel }) => {
     const isCenter = index === currentIndex;
     if (isCenter) {
       // update level in provider
-      setLevel(dispatch, index + 1).then(() => {
-        console.log("Level updated:", index + 1);
-        if (onSelectLevel) onSelectLevel(index + 1);
+      setLevel(dispatch, index).then(() => {
+        console.log("Level updated:", index);
+        if (onSelectLevel) onSelectLevel(index);
       });
     }
   };

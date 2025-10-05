@@ -50,6 +50,7 @@ export const LevelSelector = () => {
           setCurrentLevel(levelIndex);
           setShowLevelInfo(true); // mostrar ventana de LevelInfo
         }}
+        level = {currentLevel}
       />
 
       {/* Mostrar LevelInfo solo si fue activado */}
