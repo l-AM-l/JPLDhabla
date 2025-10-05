@@ -9,10 +9,10 @@
 .background-svg {
   position: absolute;
   inset: 0;
-  width: 105vw;
-  height: auto;
+  width: auto;
+  height: 150vh;
   object-fit: cover;
-  transform: translate(-2.5%, -2.5%);
+  transform: translate(-7%, -16%);
   z-index: 0;
 }
 

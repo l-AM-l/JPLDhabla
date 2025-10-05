@@ -9,7 +9,7 @@ import { Flechas } from "../../Frames/Flechas/Flechas.jsx";
 
 // ==== BACKGROUNDS ====
 import { ReactComponent as JungleBackground } from "../../../assets/jungle_back.svg";
-import { ReactComponent as StadiumBackground } from "../../../assets/stadium_back.svg";
+import { ReactComponent as StadiumBackground } from "../../../assets/school_back.svg";
 import { ReactComponent as BeachBackground } from "../../../assets/beach_back.svg";
 import { ReactComponent as HouseBackground } from "../../../assets/house_back.svg";
 import { ReactComponent as HygieneBackground } from "../../../assets/hygiene_back.svg";
@@ -59,7 +59,7 @@ export const Level = () => {
       ],
     ],
     1: [
-      ["LÁ-PIZ", "MO-CHI-LA", "PA-PE-LO-TA"],
+      ["LÁ-PIZ", "MO-CHI-LA", "PE-LO-TA"],
       ["TEN-GO UN LÁ-PIZ A-MA-RI-LLO.", "LA MO-CHI-LA ES GRAN-DE.", "LA PE-LO-TA RU-E-DA."],
       [
         "EL NI-ÑO U-SA UN LÁ-PIZ A-MA-RI-LLO PA-RA ES-CRI-BIR SU NOM-BRE.",
@@ -125,7 +125,7 @@ export const Level = () => {
   };
 
   const audioSets = {
-    0: ["/sounds/monkey.mp3", "/sounds/lion_roar.mp3", "/sounds/elephant.mp3"],
+    0: ["/sounds/monkey.mp3", "/sounds/lion.mp3", "/sounds/elephant.mp3"],
     1: ["/sounds/pencil.mp3", "/sounds/backpack.mp3", "/sounds/ball.mp3"],
     2: ["/sounds/apple.mp3", "/sounds/bread.mp3", "/sounds/fish.mp3"],
     3: ["/sounds/mom.mp3", "/sounds/bed.mp3", "/sounds/dad.mp3"],

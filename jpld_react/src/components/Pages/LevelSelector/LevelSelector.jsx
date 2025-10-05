@@ -9,7 +9,7 @@ import { LevelInfo } from "../../Screens/LevelInfo/LevelInfo.jsx";
 import "./style.css";
 
 // SVG imports (ejemplo, agrega todos los que falten)
-import { ReactComponent as Stadium } from "../../../assets/stadium.svg";
+import { ReactComponent as Stadium } from "../../../assets/school.svg";
 import { ReactComponent as Beach } from "../../../assets/beach.svg";
 import { ReactComponent as Forest } from "../../../assets/forest.svg";
 import { ReactComponent as House } from "../../../assets/house.svg";

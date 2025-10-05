@@ -9,30 +9,24 @@ import { ReactComponent as Repeat } from "../../../assets/repeat.svg";
 import { useAppContext, setScene } from "../../../context/DirectoryProvider.jsx";
 
 // Audio files from public folder
-const audioSources = [
-  "/sounds/lion.mp3",
-  "/sounds/soccer.mp3",
-  "/sounds/beach.mp3",
-];
+ const audioSets = {
+    0: ["/sounds/monkey.mp3", "/sounds/lion.mp3", "/sounds/elephant.mp3"],
+    1: ["/sounds/pencil.mp3", "/sounds/backpack.mp3", "/sounds/ball.mp3"],
+    2: ["/sounds/apple.mp3", "/sounds/bread.mp3", "/sounds/fish.mp3"],
+    3: ["/sounds/mom.mp3", "/sounds/bed.mp3", "/sounds/dad.mp3"],
+    4: ["/sounds/hands.mp3", "/sounds/toothbrush.mp3", "/sounds/feet.mp3"],
+    5: ["/sounds/airplane.mp3", "/sounds/bike.mp3", "/sounds/boat.mp3"],
+    6: ["/sounds/ball_play.mp3", "/sounds/swing.mp3", "/sounds/slide.mp3"],
+  };
 
 export const LevelOverlay = ({ text }) => {
   const preloadedAudiosRef = useRef([]);
   const { state, dispatch } = useAppContext();
 
-  // Preload audio files once
-  useEffect(() => {
-    preloadedAudiosRef.current = audioSources.map((src) => {
-      const audio = new Audio(src);
-      audio.load();
-      audio.volume = 1;
-      return audio;
-    });
-  }, []);
-
   // Play audio when Repeat button is clicked
   const handleRepeatClick = () => {
     const currentLevel = state.level; // grab current level from context
-    const src = audioSources[currentLevel % audioSources.length];
+    const src = audioSets[currentLevel]?.[state.scene];
 
     const audio = new Audio(src);
     audio.volume = 1;
