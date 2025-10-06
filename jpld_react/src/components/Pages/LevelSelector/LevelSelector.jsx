@@ -41,7 +41,6 @@ export const LevelSelector = () => {
     <div className="level-selector">
       <div className="header">
         <h1 className="title">SE-LEC-CIO-NE UN ES-CE-NA-RIO</h1>
-        <Gear className="gear-instance" onClick={handleGearClick} />
       </div>
 
       <CarruselFunc
@@ -65,11 +64,6 @@ export const LevelSelector = () => {
       <div className="back-button">
         <Flechas direction="left" to="/selector_jugadores" />
       </div>
-
-      <InGameConfig
-        className={showConfig ? "open" : ""}
-        onClose={() => setShowConfig(false)}
-      />
 
       {/* Decoración */}
       <OrangeIcon className="orange-icon2" />

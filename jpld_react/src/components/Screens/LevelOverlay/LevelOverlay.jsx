@@ -29,7 +29,7 @@ export const LevelOverlay = ({ text }) => {
     const src = audioSets[currentLevel]?.[state.scene];
 
     const audio = new Audio(src);
-    audio.volume = 1;
+    audio.volume = state.settings.volume;
     audio.currentTime = 0;
 
     audio

@@ -18,7 +18,11 @@ html, body, #root {
   height: 100%;
   display: flex;
   flex-direction: column;
+  /* Apply global brightness */
+  filter: brightness(var(--color-brightness));
+  transition: filter 0.2s ease;
 }
+
 
 /* Base body styling */
 body {
@@ -56,6 +60,7 @@ code {
   --h3-weight: 500;
   --body-weight: 400;
 
+  --color-brightness: 10;
   --accent-color: #e1567b;
   --accent-color-2: #f4bb49;
   --dark-color: #10125a;

@@ -37,51 +37,40 @@ export const SelectorJugadores = () => {
 
   return (
     <div className="selector-jugadores">
-      <div className="overlap-group">
-        <img className="background-img left" alt="Background left" src={IMG} />
-        <img className="background-img right" alt="Background right" src={img} />
+  <div className="overlap-group">
+    <img className="background-img left" alt="Background left" src={IMG} />
+    <img className="background-img right" alt="Background right" src={img} />
 
-        <div className="controls-wrapper vertical">
-          
-          {/* Top row: gear */}
-            <Gear className="gear-instance" onClick={handleGearClick} />
+    {/* Centered main controls */}
+    <div className="controls-wrapper vertical center-controls">
+      <div className="header">
+        <div className="text-wrapper">Jugadores en la sala</div>
+      </div>
 
-            {/* Header */}
-          <div className="header">
-            <div className="text-wrapper">Jugadores en la sala</div>
-          </div>
-
-          {/* PlusMinus + Person row */}
-          <div className="controls-wrapper horizontal main-row">
-            <PlusMinus
-              type="minus"
-              size="large"
-              className="minus-btn"
-              onClick={handleDecrease}
-            />
-            <Person count={playerCount} className="person-instance" />
-            <PlusMinus
-              type="plus"
-              size="large"
-              className="plus-btn"
-              onClick={handleIncrease}
-            />
-          </div>
-
-          {/* Arrows */}
-          <div className="controls-wrapper horizontal arrow-row">
-            <Flechas className="flechas-2" direction="left" to = "/"/>
-            <Flechas className="flechas-2" direction="right" to = "/level_selector"/>
-          </div>
-        </div>
-
-        {/* InGameConfig Panel */}
-        <InGameConfig
-          className={showConfig ? "open" : ""}
-          onClose={() => setShowConfig(false)}
+      <div className="controls-wrapper horizontal main-row">
+        <PlusMinus
+          type="minus"
+          size="large"
+          className="minus-btn"
+          onClick={handleDecrease}
+        />
+        <Person count={playerCount} className="person-instance" />
+        <PlusMinus
+          type="plus"
+          size="large"
+          className="plus-btn"
+          onClick={handleIncrease}
         />
       </div>
     </div>
+
+    {/* Bottom arrows */}
+    <Flechas className="flechas-2 arrow-left" direction="left" to="/" />
+    <Flechas className="flechas-2 arrow-right" direction="right" to="/level_selector" />
+
+  </div>
+</div>
+
   );
 };
 

@@ -155,6 +155,7 @@ export const Level = () => {
     const soundPath = audioSets[level]?.[scene];
     if (soundPath) {
       const audio = new Audio(soundPath);
+      audio.volume = state.settings.volume;
       audio.play().catch((err) =>
         console.error("Audio playback failed:", err)
       );
@@ -169,8 +170,6 @@ export const Level = () => {
   return (
     <div className="level-container">
       <BackgroundSVG className="background-svg" />
-
-      <Gear className="gear-instance" onClick={handleGearClick} />
 
       <div
         className={`level-animal ${animateIntro ? "intro" : ""}`}
@@ -187,10 +186,6 @@ export const Level = () => {
         <Flechas direction="left" to="/level_selector" />
       </div>
 
-      <InGameConfig
-        className={showConfig ? "open" : ""}
-        onClose={() => setShowConfig(false)}
-      />
     </div>
   );
 };

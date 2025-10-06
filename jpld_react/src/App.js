@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DirectoryProvider, { useAppContext } from "./context/DirectoryProvider.jsx";
 
@@ -8,24 +8,60 @@ import { SelectorJugadores } from "./components/Pages/Selector_Jugadores/Selecto
 import { LevelSelector } from "./components/Pages/LevelSelector/LevelSelector.jsx";
 import { Level } from "./components/Pages/Level/Level.jsx";
 
+// Global overlays
+import { Gear } from "./components/Buttons/Gear/Gear.jsx";
+import { InGameConfig } from "./components/Screens/InGameConfig/InGameConfig.jsx";
+
 function AppContent() {
   const { state } = useAppContext();
+  const [showConfig, setShowConfig] = useState(false);
 
+  // Update font scale
   useEffect(() => {
     const raw = state?.settings?.letterSize ?? 0.5;
     const scale = 0.75 + raw * 0.5; // map 0–1 → 0.75–1.25
     document.documentElement.style.setProperty("--font-scale", scale.toFixed(2));
-    console.log("Font scale applied:", scale);
   }, [state?.settings?.letterSize]);
+
+  // Update CSS variable for brightness
+  useEffect(() => {
+    const raw = state?.settings?.brightness ?? 0.5;
+    const scale = 0.5 + raw * 1.0; // map 0–1 → 0.5–1.5
+    document.documentElement.style.setProperty("--color-brightness", scale.toFixed(2));
+  }, [state?.settings?.brightness]);
+
+  const brightnessScale = 0.5 + (state?.settings?.brightness ?? 0.5) * 1.0;
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<PantallaDeInicio />} />
-        <Route path="/selector_jugadores" element={<SelectorJugadores />} />
-        <Route path="/level_selector" element={<LevelSelector />} />
-        <Route path="/level" element={<Level />} />
-      </Routes>
+      {/* Main content with brightness filter */}
+      <div
+        style={{
+          filter: `brightness(${brightnessScale})`,
+          transition: "filter 0.2s ease",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <Routes>
+          <Route path="/" element={<PantallaDeInicio />} />
+          <Route path="/selector_jugadores" element={<SelectorJugadores />} />
+          <Route path="/level_selector" element={<LevelSelector />} />
+          <Route path="/level" element={<Level />} />
+        </Routes>
+      </div>
+
+      {/* Global Gear button */}
+      <Gear
+        className="gear-instance"
+        onClick={() => setShowConfig((prev) => !prev)}
+      />
+
+      {/* Global InGameConfig overlay */}
+      <InGameConfig
+        className={showConfig ? "open" : ""}
+        onClose={() => setShowConfig(false)}
+      />
     </Router>
   );
 }

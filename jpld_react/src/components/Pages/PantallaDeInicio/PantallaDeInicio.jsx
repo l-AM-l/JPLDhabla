@@ -21,8 +21,6 @@ export const PantallaDeInicio = () => {
   return (
     <div className="pantalla-de-inicio">
       <div className="overlap-group">
-        {/* Gear directly inside overlap-group for absolute positioning */}
-        <Gear className="gear-instance" onClick={handleGearClick} />
 
 
         <img className="IMG" alt="Img" src={IMG} />
@@ -35,7 +33,6 @@ export const PantallaDeInicio = () => {
         </div>
   
       </div>
-      <InGameConfig className={showConfig ? "open" : ""} onClose={() => setShowConfig(false)} />
     </div>
   );
 };
