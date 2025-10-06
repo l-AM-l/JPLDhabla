@@ -101,7 +101,7 @@ If you use this project in academic, research, or non-commercial environments, p
 
 If you wish to collaborate, adapt this project for non-commercial educational purposes, or request redistribution permissions, please contact:
 
-📧 **[Insert your preferred contact email or project site here]**
+📧 **rodlopg@gmail.com**
 
 ---
 
