@@ -15,8 +15,15 @@ Its primary goal is to assist children with speech therapy through visual intera
 ## 👩‍💻 Team and Contributors
 
 **Created by:**
-- Rodrigo López Gómez  
 - Ramón Alejandro Briseño Martínez  
+- Hannah Carolina Fabian Valensia  
+- Paola Ortega Bravo  
+- Martín García Torres  
+- Carlos Jimenez Zepeda  
+- Santiago Arreola Munguía  
+- Demián Velasco Gómez Llanos  
+- Andrés González Gómez  
+- Rodrigo López Gómez  
 - Nahui Metztli Dado Delgadillo  
 - Ana Mariem Pérez Chacón  
 - Karla Avila Navarro  
@@ -44,9 +51,6 @@ We thank all educators, linguists, and testers who contributed their expertise t
 - 🧩 Adaptive exercises for different pronunciation levels
 - 💡 Configurable interface brightness and text scaling
 - 🌈 100% open source under a **non-commercial license**
-
----
-
 
 ---
 
@@ -109,15 +113,10 @@ If you wish to collaborate, adapt this project for non-commercial educational pu
 
 If you use this project in research, please cite it as:
 
-> López Gómez, R., Briseño Martínez, R. A., Dado Delgadillo, N. M., Pérez Chacón, A. M., Avila Navarro, K., & Guzman Solís, A. M. (2025). *Speech Helper App for Kids*. Licensed under CC BY-NC-SA 4.0.
+> Briseño Martínez, R. A., Fabian Valensia, H. C., Ortega Bravo, P., García Torres, M., Jimenez Zepeda, C., Arreola Munguía, S., Velasco Gómez Llanos, D., González Gómez, A., López Gómez, R., Dado Delgadillo, N. M., Pérez Chacón, A. M., Avila Navarro, K., & Guzman Solís, A. M. (2025). *Speech Helper App for Kids*. Licensed under CC BY-NC-SA 4.0.
 
 ---
 
 ## 💖 Acknowledgements
 
 This project was made possible through collaboration, creativity, and a shared passion for helping children overcome speech barriers through technology and play.
-
----
-
-
-
